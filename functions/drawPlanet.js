@@ -2,6 +2,7 @@ const drawPlanet = (canvas, planetData) => {
 
   const height = 200;
   const width = 200;
+  const radius = 90;
 
   const ctx = mainCanvas.getContext('2d');
   let color = '#FFFFFF'
@@ -15,12 +16,12 @@ const drawPlanet = (canvas, planetData) => {
   ctx.fillStyle = '#000000';
   ctx.fillRect(0, 0, 200, 200)
 
-  for (let i = 0; i < width; i++) {
-    for (let j = 0; j < height; j++) {
-      const ix = i - 100
-      const jx = j - 100
-      if (ix*ix + jx*jx < 90*90 && ix*ix + jx*jx > (89*89)) pixel(i, j, '#00FFFF')
-    }
+  const noPixels = 200;
+
+  for (let i = 0; i < noPixels; i++) {
+    const x = Math.round(100 + radius * Math.sin((i / noPixels) * 2 * Math.PI))
+    const y = Math.round(100 + radius * Math.cos((i / noPixels) * 2 * Math.PI))
+    pixel(x, y)
   }
 
 };
