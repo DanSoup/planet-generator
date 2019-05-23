@@ -1,4 +1,4 @@
-import generatePlanet from './generatePlanet.js';
+import generatePlanet from './functions/generatePlanet.js/index.js';
 
 const planet = generatePlanet()
 
