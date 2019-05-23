@@ -33,6 +33,16 @@ const drawPlanet = (canvas, planetData) => {
   pixel(Math.round(poleTips[0][0] * radius + 100), Math.round(poleTips[0][1] * radius + 100));
   pixel(Math.round(poleTips[1][0] * radius + 100), Math.round(poleTips[1][1] * radius + 100));
 
+  for (let i = 1; i < 99; i++) {
+
+    const dX = poleTips[0][0] - poleTips[1][0];
+    const dY = poleTips[0][1] - poleTips[1][1];
+
+    // pixel((poleTips[0][0] - dX * (i / 100)) * radius + 100, (poleTips[0][1] - dY * (i / 100)) * radius + 100)
+    pixel(Math.round((poleTips[0][0] - dX * (i / 100)) * radius + 100), Math.round((poleTips[0][1] - dY * (i / 100)) * radius + 100))
+
+  }
+
   for (let i = 0; i < noPixels; i++) {
     const x = Math.round(100 + radius * Math.sin((i / noPixels) * 2 * Math.PI))
     const y = Math.round(100 + radius * Math.cos((i / noPixels) * 2 * Math.PI))
