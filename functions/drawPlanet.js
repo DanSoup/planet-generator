@@ -3,7 +3,7 @@ const drawPlanet = (canvas, planetData) => {
   // Declaring variables
   const height = 200;
   const width = 200;
-  const radius = 90;
+  const radius = 45;
   const origin = [100, 100, 100]
 
   // Randomly generate the angle of the axis.
@@ -98,7 +98,7 @@ const drawPlanet = (canvas, planetData) => {
 
   }
 
-  const lats = mapLatitudes(16).map(point => {
+  const lats = mapLatitudes(radius * 5).map(point => {
     return rotateYAxis(rotateZAxis(point, Math.PI / 2), Math.PI / 2)
   })
 
