@@ -39,7 +39,9 @@ const drawPlanet = (canvas, planetData) => {
 
     const newPoints = [];
 
-    for (let y = -1; y <= 1; y += 2 / noPoints) {
+    for (let n = 0; n < noPoints; n++) {
+
+      const y = Math.cos((n * Math.PI) / noPoints)
 
       const r = Math.sqrt(1 - y * y);
 
@@ -101,7 +103,7 @@ const drawPlanet = (canvas, planetData) => {
   })
 
   lats.forEach(point => {
-    pixel(Math.round(point[0]), Math.round(point[1]))
+    if (point[2] > 100) pixel(Math.round(point[0]), Math.round(point[1]))
   })
 
 }
