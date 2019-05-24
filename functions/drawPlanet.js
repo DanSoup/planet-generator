@@ -43,7 +43,7 @@ const drawPlanet = (canvas, planetData) => {
 
       const r = Math.sqrt(1 - y * y);
 
-      for (let t = 0; t < 2 * Math.PI; t += Math.PI / noPoints) {
+      for (let t = 0; t < 2 * Math.PI; t += Math.PI / (noPoints * r)) {
 
         const x = r * Math.cos(t);
         const z = r * Math.sin(t);
@@ -96,12 +96,12 @@ const drawPlanet = (canvas, planetData) => {
 
   }
 
-  const lats = mapLatitudes(16).map(point => {
+  const lats = mapLatitudes(128).map(point => {
     return rotateYAxis(rotateZAxis(point, 2), 2)
   })
 
   lats.forEach(point => {
-    pixel(point[0], point[1])
+    pixel(Math.round(point[0]), Math.round(point[1]))
   })
 
 }
