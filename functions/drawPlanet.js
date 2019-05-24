@@ -39,13 +39,13 @@ const drawPlanet = (canvas, planetData) => {
 
     const newPoints = [];
 
-    for (let x = -1; x <= 1; x += 2 / noPoints) {
+    for (let y = -1; y <= 1; y += 2 / noPoints) {
 
-      const r = Math.sqrt(1 - x * x);
+      const r = Math.sqrt(1 - y * y);
 
       for (let t = 0; t < 2 * Math.PI; t += Math.PI / noPoints) {
 
-        const y = r * Math.cos(t);
+        const x = r * Math.cos(t);
         const z = r * Math.sin(t);
 
         newPoints.push([x, y, z]);
@@ -64,73 +64,46 @@ const drawPlanet = (canvas, planetData) => {
 
   };
 
-  const lats = mapLatitudes(32)
+  const rotateYAxis = (point, t) => {
 
-  for (let t = 0; t < 100 * Math.PI; t += 0.01) {
+    const newPoint = [...point];
 
-    setTimeout(() => {
+    const x = point[0] - origin[0];
+    const y = point[1] - origin[1];
+    const z = point[2] - origin[2];
 
-      ctx.fillStyle = '#000000';
-      ctx.fillRect(0, 0, 200, 200)
-      ctx.fillStyle = '#FFFFFF';
+    newPoint[0] = x * Math.cos(t) + z * Math.sin(t) + origin[0];
+    newPoint[1] = y + origin[1];
+    newPoint[2] = z * Math.cos(t) - x * Math.sin(t) + origin[2];
 
-    lats.forEach(point => {
-
-      // const t = Math.PI / 4;
-      const x = point[0] - origin[0];
-      const y = point[1] - origin[1];
-      const z = point[2] - origin[2];
-
-      const rX = x * Math.cos(t) + z * Math.sin(t) + origin[0];
-      const rY = y + origin[1];
-      const rZ = z * Math.cos(t) - x * Math.sin(t) + origin[2];
-
-      pixel(rX, rY);
-
-    });
-
-    }, t * 5000)
+    return newPoint;
 
   }
 
-  // for (let i = 0; i <= 4; i++) {
+  const rotateZAxis = (point, t) => {
 
-    
+    const newPoint = [...point];
 
-  //   const dX = poleTips[0][0] - poleTips[1][0];
-  //   const dY = poleTips[0][1] - poleTips[1][1];
+    const x = point[0] - origin[0];
+    const y = point[1] - origin[1];
+    const z = point[2] - origin[2];
 
-  //   // pixel((poleTips[0][0] - dX * (i / 100)) * radius + 100, (poleTips[0][1] - dY * (i / 100)) * radius + 100)
-  //   pixel(Math.round((poleTips[0][0] - dX * (i / 4)) * radius + 100), Math.round((poleTips[0][1] - dY * (i / 4)) * radius + 100))
+    newPoint[0] = x * Math.cos(t) + y * Math.sin(t) + origin[0];
+    newPoint[1] = y * Math.cos(t) - x * Math.sin(t) + origin[1];
+    newPoint[2] = z + origin[2];
 
-  // }
+    return newPoint;
 
-  // Drawing the tips of the poles
-  // pixel(Math.round(poleTips[0][0] * radius + 100), Math.round(poleTips[0][1] * radius + 100));
-  // pixel(Math.round(poleTips[1][0] * radius + 100), Math.round(poleTips[1][1] * radius + 100));
+  }
 
-  // Drawing the axis of the planet
-  // for (let i = 1; i < 99; i++) {
+  const lats = mapLatitudes(16).map(point => {
+    return rotateYAxis(rotateZAxis(point, 2), 2)
+  })
 
-  //   const dX = poleTips[0][0] - poleTips[1][0];
-  //   const dY = poleTips[0][1] - poleTips[1][1];
+  lats.forEach(point => {
+    pixel(point[0], point[1])
+  })
 
-  //   // pixel((poleTips[0][0] - dX * (i / 100)) * radius + 100, (poleTips[0][1] - dY * (i / 100)) * radius + 100)
-  //   // pixel(Math.round((poleTips[0][0] - dX * (i / 100)) * radius + 100), Math.round((poleTips[0][1] - dY * (i / 100)) * radius + 100))
-
-  // }
-
-  // Drawing a circle
-
-  // const noPixels = 200;
-
-  // for (let i = 0; i < noPixels; i++) {
-  //   const x = Math.round(100 + radius * Math.sin((i / noPixels) * 2 * Math.PI))
-  //   const y = Math.round(100 + radius * Math.cos((i / noPixels) * 2 * Math.PI))
-  //   pixel(x, y)
-  // };
-
-};
+}
 
 export default drawPlanet;
-
