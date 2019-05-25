@@ -3,20 +3,8 @@ const drawPlanet = (canvas, planetData) => {
   // Declaring variables
   const height = 200;
   const width = 200;
-  const radius = 45;
+  const radius = 90;
   const origin = [100, 100, 100]
-
-  // Randomly generate the angle of the axis.
-  const poleAngle = []
-  
-  poleAngle[0] = Math.random() * Math.PI / 2;
-  poleAngle[1] = Math.random() * Math.PI;
-
-  // Calculate the positions of the ends of the axis
-  const poleTips = []
-
-  poleTips[0] = [Math.cos(poleAngle[0]) * Math.cos(poleAngle[1]), Math.cos(poleAngle[0]) * Math.sin(poleAngle[1])];
-  poleTips[1] = [-poleTips[0][0], -poleTips[0][1]];
 
   const points = [];
 
@@ -34,7 +22,7 @@ const drawPlanet = (canvas, planetData) => {
   ctx.fillStyle = '#000000';
   ctx.fillRect(0, 0, 200, 200)
 
-  // Circle along horizontal axis
+  // Circles along horizontal axis
   const mapLatitudes = (noPoints = 6) => {
 
     const newPoints = [[0, -1, 0], [0, 1, 0]];
@@ -66,6 +54,7 @@ const drawPlanet = (canvas, planetData) => {
 
   };
 
+  // Rotate a point in the y axis by t radians
   const rotateYAxis = (point, t) => {
 
     const newPoint = [...point];
@@ -82,6 +71,7 @@ const drawPlanet = (canvas, planetData) => {
 
   }
 
+  // Rotate a point in the z axis by t radians
   const rotateZAxis = (point, t) => {
 
     const newPoint = [...point];
@@ -104,7 +94,29 @@ const drawPlanet = (canvas, planetData) => {
 
   lats.forEach(point => {
     if (point[2] > 100) pixel(Math.round(point[0]), Math.round(point[1]))
-  })
+  });
+
+  const spinSphere = t => {
+
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(0, 0, 200, 200)
+    ctx.fillStyle = '#0000FF';
+
+    const lats = mapLatitudes(radius * 5).map(point => {
+      return rotateYAxis(rotateZAxis(point, Math.PI / 2), t * Math.PI / 128)
+    })
+
+    lats.forEach(point => {
+      if (point[2] > 100) pixel(Math.round(point[0]), Math.round(point[1]));
+    });
+
+    setTimeout(() => {
+      spinSphere(t + 1);
+    }, 50);
+
+  };
+
+  spinSphere(0);
 
 }
 
