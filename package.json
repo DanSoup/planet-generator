@@ -1,0 +1,19 @@
+{
+  "name": "planet-generator",
+  "version": "1.0.0",
+  "description": "Generates planets for my upcoming game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanSoup/planet-generator.git"
+  },
+  "author": "Dan Soup (Daniel Thomas)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanSoup/planet-generator/issues"
+  },
+  "homepage": "https://github.com/DanSoup/planet-generator#readme"
+}
