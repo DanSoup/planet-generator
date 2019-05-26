@@ -98,12 +98,20 @@ const drawPlanet = (canvas, planetData) => {
     return point;
   })
 
-  const mapToRealCoords = (points, radius, origin) => {
+  const mapToRealCoords = (points, radius, origin, pixelPerfect = true) => {
     return points.map(point => {
-      return {
-        x: point.x * radius + origin.x,
-        y: point.y * radius + origin.y,
-        z: point.z * radius + origin.z
+      if (pixelPerfect) {
+        return {
+          x: Math.round(point.x * radius + origin.x),
+          y: Math.round(point.y * radius + origin.y),
+          z: Math.round(point.z * radius + origin.z)
+        }
+      } else {
+        return {
+          x: point.x * radius + origin.x,
+          y: point.y * radius + origin.y,
+          z: point.z * radius + origin.z
+        }
       }
     });
   }
