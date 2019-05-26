@@ -85,7 +85,7 @@ const drawPlanet = (canvas, planetData) => {
 
   }
 
-  const rotateZAxis = (point, t) => {
+  const rotateXAxis = (point, t) => {
 
     const x = point.x;
     const y = point.y * Math.cos(t) - point.z * Math.sin(t);
@@ -97,11 +97,6 @@ const drawPlanet = (canvas, planetData) => {
 
   }
 
-  const lats = mapLatitudes(8).map(point => {
-    // return rotateYAxis(rotateZAxis(point, 0.25 * Math.PI), 0.25 * Math.PI)
-    return rotateYAxis(point, Math.PI / 5);
-  })
-
   // Maps -1 to 1 coords to the real proportions of the canvas
   const mapToRealCoords = (points, radius, origin, pixelPerfect = true) => {
     return points.map(point => {
@@ -109,22 +104,38 @@ const drawPlanet = (canvas, planetData) => {
         return {
           x: Math.round(point.x * radius + origin.x),
           y: Math.round(point.y * radius + origin.y),
-          z: Math.round(point.z * radius + origin.z)
+          z: Math.round(point.z * radius + origin.z),
+          color: point.color
         }
       } else {
         return {
           x: point.x * radius + origin.x,
           y: point.y * radius + origin.y,
-          z: point.z * radius + origin.z
+          z: point.z * radius + origin.z,
+          color: point.color
         }
       }
     });
-  }
+  };
 
-  const realLats = mapToRealCoords(lats, 90, {x: 100, y: 100, z: 100});
+  const lats = mapLatitudes(90).map(point => {
+    // return rotateYAxis(rotateZAxis(point, 0.25 * Math.PI), 0.25 * Math.PI)
+    return point;
+  });
+
+  lats.forEach(point => {
+    point.color = hexColor(
+      Math.floor((point.x + 1) * 128),
+      Math.floor((point.y + 1) * 128),
+      Math.floor((point.z + 1) * 128),
+      255
+    )
+  });
+
+  const realLats = mapToRealCoords(lats, 90, {x: 100, y: 100, z: 100}, false);
 
   realLats.forEach(point => {
-    if (point.z > 100) drawPixel(point.x, point.y, '#FFFFFFFF')
+    if (point.z > 100) drawPixel(point.x, point.y, point.color)
   });
 
 }
