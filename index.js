@@ -4,5 +4,5 @@ import generateTerrain from './functions/generateTerrain.js';
 
 const mainCanvas = document.getElementById('mainCanvas');
 
-// drawPlanet(mainCanvas, planet)
-generateTerrain(mainCanvas)
+drawPlanet(mainCanvas)
+// generateTerrain(mainCanvas)

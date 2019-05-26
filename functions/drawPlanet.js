@@ -6,7 +6,7 @@ const drawPlanet = (canvas, planetData) => {
   const height = 200;
   const width = 200;
   const radius = 90;
-  const origin = [100, 100, 100]
+  const origin = {x: 100, y: 100, z: 100}
 
   const points = [];
 
@@ -36,7 +36,7 @@ const drawPlanet = (canvas, planetData) => {
   // Circles along horizontal axis
   const mapLatitudes = (noPoints = 6) => {
 
-    const newPoints = [[0, -1, 0, hexColor(128, 128, 128, 255)], [0, 1, 0, hexColor(128, 128, 128, 255)]];
+    const newPoints = [{x : 0, y: -1, z: 0}, {x : 0, y: -1, z: 0}];
 
     for (let n = 1; n <= noPoints - 1; n++) {
 
@@ -49,28 +49,13 @@ const drawPlanet = (canvas, planetData) => {
         const x = r * Math.cos(t);
         const z = r * Math.sin(t);
 
-        const luminoscity = Math.floor(y * 128) + 128;
-
-        const red = Math.floor(256 * Math.abs(y));
-        const green = 255;
-        const blue = 0;
-
-        const color = hexColor(red, green, blue, 255);
-
-        newPoints.push([x, y, z, color]);
+        newPoints.push({x, y, z});
 
       };
 
     };
 
-    return newPoints.map(point => {
-      return [
-        point[0] * radius + origin[0],
-        point[1] * radius + origin[1],
-        point[2] * radius + origin[2],
-        point[3]
-      ]
-    });
+    return newPoints
 
   };
 
@@ -108,12 +93,25 @@ const drawPlanet = (canvas, planetData) => {
 
   }
 
-  const lats = mapLatitudes(radius * 5).map(point => {
-    return rotateYAxis(rotateZAxis(point, 0.25 * Math.PI), 0.25 * Math.PI)
+  const lats = mapLatitudes(8).map(point => {
+    // return rotateYAxis(rotateZAxis(point, 0.25 * Math.PI), 0.25 * Math.PI)
+    return point;
   })
 
-  lats.forEach(point => {
-    if (point[2] > 100) pixel(Math.round(point[0]), Math.round(point[1]), point[3])
+  const mapToRealCoords = (points, radius, origin) => {
+    return points.map(point => {
+      return {
+        x: point.x * radius + origin.x,
+        y: point.y * radius + origin.y,
+        z: point.z * radius + origin.z
+      }
+    });
+  }
+
+  const realLats = mapToRealCoords(lats, 10, {x: 100, y: 100, z: 100});
+
+  realLats.forEach(point => {
+    if (point.z > 100) pixel(point.x, point.y, '#FFFFFFFF')
   });
 
 }
