@@ -1,10 +1,8 @@
 import generatePlanet from './functions/generatePlanet.js';
 import drawPlanet from './functions/drawPlanet.js';
+import generateTerrain from './functions/generateTerrain.js';
 
-const planet = generatePlanet()
+const mainCanvas = document.getElementById('mainCanvas');
 
-console.log(planet)
-
-const mainCanvas = document.getElementById('mainCanvas')
-
-drawPlanet(mainCanvas, planet)
+// drawPlanet(mainCanvas, planet)
+generateTerrain(mainCanvas)
