@@ -14,7 +14,7 @@ const drawPlanet = (canvas, planetData) => {
   let color = '#FFFFFF'
 
   // A function to draw a pixel at point (x, y) in newColor.
-  const pixel = (x, y, newColor) => {
+  const drawPixel = (x, y, newColor) => {
     // if (newColor) color = newColor;
     ctx.fillStyle = newColor || color;
     ctx.fillRect(x, y, 1, 1);
@@ -61,17 +61,13 @@ const drawPlanet = (canvas, planetData) => {
 
   // Rotate a point in the y axis by t radians
   const rotateYAxis = (point, t) => {
-
-    const newPoint = [...point];
-
-    const x = point[0] - origin[0];
-    const y = point[1] - origin[1];
-    const z = point[2] - origin[2];
-
-    newPoint[0] = x * Math.cos(t) + z * Math.sin(t) + origin[0];
-    newPoint[1] = y + origin[1];
-    newPoint[2] = z * Math.cos(t) - x * Math.sin(t) + origin[2];
-
+    
+    const x = point.x * Math.cos(t) + point.z * Math.sin(t);
+    const y = point.y;
+    const z = point.z * Math.cos(t) - point.x * Math.sin(t);
+    
+    const newPoint = {x, y, z};
+    
     return newPoint;
 
   }
@@ -79,25 +75,34 @@ const drawPlanet = (canvas, planetData) => {
   // Rotate a point in the z axis by t radians
   const rotateZAxis = (point, t) => {
 
-    const newPoint = [...point];
+    const x = point.x * Math.cos(t) + point.y * Math.sin(t);
+    const y = point.y * Math.cos(t) - point.x * Math.sin(t);
+    const z = point.z;
+    
+    const newPoint = {x, y, z};
+    
+    return newPoint;
 
-    const x = point[0] - origin[0];
-    const y = point[1] - origin[1];
-    const z = point[2] - origin[2];
+  }
 
-    newPoint[0] = x * Math.cos(t) + y * Math.sin(t) + origin[0];
-    newPoint[1] = y * Math.cos(t) - x * Math.sin(t) + origin[1];
-    newPoint[2] = z + origin[2];
+  const rotateZAxis = (point, t) => {
 
+    const x = point.x;
+    const y = point.y * Math.cos(t) - point.z * Math.sin(t);
+    const z = point.z * Math.cos(t) + point.y * Math.sin(t);
+    
+    const newPoint = {x, y, z};
+    
     return newPoint;
 
   }
 
   const lats = mapLatitudes(8).map(point => {
     // return rotateYAxis(rotateZAxis(point, 0.25 * Math.PI), 0.25 * Math.PI)
-    return point;
+    return rotateYAxis(point, Math.PI / 5);
   })
 
+  // Maps -1 to 1 coords to the real proportions of the canvas
   const mapToRealCoords = (points, radius, origin, pixelPerfect = true) => {
     return points.map(point => {
       if (pixelPerfect) {
@@ -116,10 +121,10 @@ const drawPlanet = (canvas, planetData) => {
     });
   }
 
-  const realLats = mapToRealCoords(lats, 10, {x: 100, y: 100, z: 100});
+  const realLats = mapToRealCoords(lats, 90, {x: 100, y: 100, z: 100});
 
   realLats.forEach(point => {
-    if (point.z > 100) pixel(point.x, point.y, '#FFFFFFFF')
+    if (point.z > 100) drawPixel(point.x, point.y, '#FFFFFFFF')
   });
 
 }
