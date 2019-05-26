@@ -1,3 +1,5 @@
+import hexColor from './hexColor.js';
+
 const drawPlanet = (canvas, planetData) => {
 
   // Declaring variables
@@ -13,7 +15,7 @@ const drawPlanet = (canvas, planetData) => {
 
   // A function to draw a pixel at point (x, y) in newColor.
   const pixel = (x, y, newColor) => {
-    if (newColor) color = newColor;
+    // if (newColor) color = newColor;
     ctx.fillStyle = newColor || color;
     ctx.fillRect(x, y, 1, 1);
   }
@@ -22,10 +24,19 @@ const drawPlanet = (canvas, planetData) => {
   ctx.fillStyle = '#000000';
   ctx.fillRect(0, 0, 200, 200)
 
+  const randomColor = () => {
+    return hexColor(
+      Math.floor(Math.random() * 256),
+      Math.floor(Math.random() * 256),
+      Math.floor(Math.random() * 256),
+      255
+    )
+  }
+
   // Circles along horizontal axis
   const mapLatitudes = (noPoints = 6) => {
 
-    const newPoints = [[0, -1, 0], [0, 1, 0]];
+    const newPoints = [[0, -1, 0, hexColor(128, 128, 128, 255)], [0, 1, 0, hexColor(128, 128, 128, 255)]];
 
     for (let n = 1; n <= noPoints - 1; n++) {
 
@@ -38,7 +49,15 @@ const drawPlanet = (canvas, planetData) => {
         const x = r * Math.cos(t);
         const z = r * Math.sin(t);
 
-        newPoints.push([x, y, z]);
+        const luminoscity = Math.floor(y * 128) + 128;
+
+        const red = Math.floor(256 * Math.abs(y));
+        const green = 255;
+        const blue = 0;
+
+        const color = hexColor(red, green, blue, 255);
+
+        newPoints.push([x, y, z, color]);
 
       };
 
@@ -48,7 +67,8 @@ const drawPlanet = (canvas, planetData) => {
       return [
         point[0] * radius + origin[0],
         point[1] * radius + origin[1],
-        point[2] * radius + origin[2]
+        point[2] * radius + origin[2],
+        point[3]
       ]
     });
 
@@ -89,34 +109,12 @@ const drawPlanet = (canvas, planetData) => {
   }
 
   const lats = mapLatitudes(radius * 5).map(point => {
-    return rotateYAxis(rotateZAxis(point, Math.PI / 2), Math.PI / 2)
+    return rotateYAxis(rotateZAxis(point, 0.25 * Math.PI), 0.25 * Math.PI)
   })
 
   lats.forEach(point => {
-    if (point[2] > 100) pixel(Math.round(point[0]), Math.round(point[1]))
+    if (point[2] > 100) pixel(Math.round(point[0]), Math.round(point[1]), point[3])
   });
-
-  const spinSphere = t => {
-
-    ctx.fillStyle = '#000000';
-    ctx.fillRect(0, 0, 200, 200)
-    ctx.fillStyle = '#0000FF';
-
-    const lats = mapLatitudes(radius * 5).map(point => {
-      return rotateYAxis(rotateZAxis(point, Math.PI / 2), t * Math.PI / 128)
-    })
-
-    lats.forEach(point => {
-      if (point[2] > 100) pixel(Math.round(point[0]), Math.round(point[1]));
-    });
-
-    setTimeout(() => {
-      spinSphere(t + 1);
-    }, 50);
-
-  };
-
-  spinSphere(0);
 
 }
 
