@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/DanSoup/planet-generator/issues"
   },
-  "homepage": "https://github.com/DanSoup/planet-generator#readme"
+  "homepage": "https://github.com/DanSoup/planet-generator#readme",
+  "devDependencies": {
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0"
+  }
 }
