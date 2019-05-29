@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="mainCanvas" width="256" height="256" style="border: black solid 1px"></canvas>
+  <br/>
+  <label>X Rotation
+    <input id="xRot" type="range" min="0" max="15"></input>
+  </label>
+  <br/>
+  <label>Y Rotation
+    <input id="yRot" type="range" min="0" max="15"></input>
+  </label>
+  <br/>
+  <label>Z Rotation
+    <input id="zRot" type="range" min="0" max="15"></input>
+  </label>
+  <br/>
+  <label>Radius
+    <input id="radius" type="range"></input>
+  </label>
+  <br/>
+  <label>N Pole Color
+    <input id="nColor" type="color"></input>
+  </label>
+  <br/>
+  <label>Equator Color
+    <input id="eColor" type="color"></input>
+  </label>
+  <br/>
+  <label>S Pole Color
+    <input id="sColor" type="color"></input>
+  </label>
+  <br/>
+  <button>GENERATE</button>
+  <p>Seed: </p>
+</body>
+<script type="module" src="planetGenerator.js"></script>
+</html>
