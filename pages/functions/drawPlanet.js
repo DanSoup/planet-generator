@@ -2,11 +2,13 @@ import hexColor from './hexColor.js';
 
 const drawPlanet = (canvas, planetData) => {
 
+  const {xRot, yRot, zRot} = planetData;
+
   // Declaring variables
-  const height = 200;
-  const width = 200;
-  const radius = 90;
-  const origin = {x: 100, y: 100, z: 100}
+  const height = canvas.height;
+  const width = canvas.width;
+  const radius = 110;
+  const origin = {x: 128, y: 128, z: 128}
 
   const points = [];
 
@@ -22,7 +24,7 @@ const drawPlanet = (canvas, planetData) => {
 
   // Creating the black background;
   ctx.fillStyle = '#000000';
-  ctx.fillRect(0, 0, 200, 200)
+  ctx.fillRect(0, 0, height, width)
 
   const randomColor = () => {
     return hexColor(
@@ -119,8 +121,8 @@ const drawPlanet = (canvas, planetData) => {
   };
 
   const lats = mapLatitudes(90).map(point => {
-    // return rotateYAxis(rotateZAxis(point, 0.25 * Math.PI), 0.25 * Math.PI)
-    return point;
+    return rotateYAxis(rotateZAxis(point, zRot), yRot)
+    // return point;
   });
 
   lats.forEach(point => {
@@ -132,7 +134,7 @@ const drawPlanet = (canvas, planetData) => {
     )
   });
 
-  const realLats = mapToRealCoords(lats, 90, {x: 100, y: 100, z: 100}, false);
+  const realLats = mapToRealCoords(lats, 110, {x: 128, y: 128, z: 128}, false);
 
   realLats.forEach(point => {
     if (point.z > 100) drawPixel(point.x, point.y, point.color)

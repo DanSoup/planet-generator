@@ -29,7 +29,7 @@ const generatePlanet = () => {
   console.log(eColor);
   console.log(sColor);
   const canvas = document.getElementById('mainCanvas')
-  drawPlanet(canvas)
+  drawPlanet(canvas, {xRot: xRot.value * Math.PI * 2 / 16, yRot: yRot.value * Math.PI * 2 / 16, zRot: zRot.value * Math.PI * 2 / 16})
 };
 
 // const xRot = document.getElementById('xRot').value;
