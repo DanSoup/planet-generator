@@ -2,7 +2,7 @@ import hexColor from './hexColor.js';
 
 const drawPlanet = (canvas, planetData) => {
 
-  const {xRot, yRot, zRot} = planetData;
+  const {xRot, yRot, zRot, nColor, sColor, eColor} = planetData;
 
   // Declaring variables
   const height = canvas.height;
@@ -17,7 +17,6 @@ const drawPlanet = (canvas, planetData) => {
 
   // A function to draw a pixel at point (x, y) in newColor.
   const drawPixel = (x, y, newColor) => {
-    // if (newColor) color = newColor;
     ctx.fillStyle = newColor || color;
     ctx.fillRect(x, y, 1, 1);
   }
@@ -68,7 +67,7 @@ const drawPlanet = (canvas, planetData) => {
     const y = point.y;
     const z = point.z * Math.cos(t) - point.x * Math.sin(t);
     
-    const newPoint = {x, y, z};
+    const newPoint = {...point, x, y, z};
     
     return newPoint;
 
@@ -81,7 +80,7 @@ const drawPlanet = (canvas, planetData) => {
     const y = point.y * Math.cos(t) - point.x * Math.sin(t);
     const z = point.z;
     
-    const newPoint = {x, y, z};
+    const newPoint = {...point, x, y, z};
     
     return newPoint;
 
@@ -93,7 +92,7 @@ const drawPlanet = (canvas, planetData) => {
     const y = point.y * Math.cos(t) - point.z * Math.sin(t);
     const z = point.z * Math.cos(t) + point.y * Math.sin(t);
     
-    const newPoint = {x, y, z};
+    const newPoint = {...point, x, y, z};
     
     return newPoint;
 
@@ -120,10 +119,7 @@ const drawPlanet = (canvas, planetData) => {
     });
   };
 
-  const lats = mapLatitudes(90).map(point => {
-    return rotateYAxis(rotateZAxis(point, zRot), yRot)
-    // return point;
-  });
+  let lats = mapLatitudes(500);
 
   lats.forEach(point => {
     point.color = hexColor(
@@ -132,12 +128,18 @@ const drawPlanet = (canvas, planetData) => {
       Math.floor((point.z + 1) * 128),
       255
     )
+      
+  });
+
+  lats = lats.map(point => {
+    return rotateYAxis(rotateZAxis(point, zRot), yRot)
+    // return point;
   });
 
   const realLats = mapToRealCoords(lats, 110, {x: 128, y: 128, z: 128}, false);
 
   realLats.forEach(point => {
-    if (point.z > 100) drawPixel(point.x, point.y, point.color)
+    if (point.z > 128) drawPixel(point.x, point.y, point.color)
   });
 
 }
