@@ -119,7 +119,7 @@ const drawPlanet = (canvas, planetData) => {
     });
   };
 
-  let lats = mapLatitudes(500);
+  let lats = mapLatitudes(64);
 
   lats.forEach(point => {
     point.color = hexColor(
@@ -127,12 +127,11 @@ const drawPlanet = (canvas, planetData) => {
       Math.floor((point.y + 1) * 128),
       Math.floor((point.z + 1) * 128),
       255
-    )
-      
+    );
   });
 
   lats = lats.map(point => {
-    return rotateYAxis(rotateZAxis(point, zRot), yRot)
+    return rotateXAxis(rotateYAxis(rotateZAxis(point, zRot), yRot), xRot);
     // return point;
   });
 
