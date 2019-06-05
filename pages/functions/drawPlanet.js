@@ -2,12 +2,11 @@ import hexColor from './hexColor.js';
 
 const drawPlanet = (canvas, planetData) => {
 
-  const {xRot, yRot, zRot, nColor, sColor, eColor} = planetData;
+  const {xRot, yRot, zRot, nColor, sColor, eColor, radius} = planetData;
 
   // Declaring variables
   const height = canvas.height;
   const width = canvas.width;
-  const radius = 110;
   const origin = {x: 128, y: 128, z: 128}
 
   const points = [];
@@ -119,14 +118,19 @@ const drawPlanet = (canvas, planetData) => {
     });
   };
 
-  let lats = mapLatitudes(64);
+  let lats = mapLatitudes(radius * 5);
 
   lats.forEach(point => {
+
+    const sProp = Math.max(point.y, 0);
+    const nProp = Math.max(-1 * point.y, 0);
+    const eProp = 1 - sProp - nProp;
+
     point.color = hexColor(
-      Math.floor((point.x + 1) * 128),
-      Math.floor((point.y + 1) * 128),
-      Math.floor((point.z + 1) * 128),
-      255
+      Math.floor(sProp * sColor.r + eProp * eColor.r + nProp * nColor.r),
+      Math.floor(sProp * sColor.g + eProp * eColor.g + nProp * nColor.g),
+      Math.floor(sProp * sColor.b + eProp * eColor.b + nProp * nColor.b),
+      Math.floor(sProp * sColor.a + eProp * eColor.a + nProp * nColor.a)
     );
   });
 
@@ -135,10 +139,14 @@ const drawPlanet = (canvas, planetData) => {
     // return point;
   });
 
-  const realLats = mapToRealCoords(lats, 110, {x: 128, y: 128, z: 128}, false);
+  const realLats = mapToRealCoords(lats, radius, {x: 128, y: 128, z: 128}, false);
 
-  realLats.forEach(point => {
-    if (point.z > 128) drawPixel(point.x, point.y, point.color)
+  realLats.sort((a, b) => a.z - b.z).forEach(point => {
+    if (point.z > 128) {
+      setTimeout(() => {
+        drawPixel(point.x, point.y, point.color);
+        });
+      }
   });
 
 }

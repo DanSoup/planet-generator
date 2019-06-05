@@ -1,4 +1,18 @@
 import drawPlanet from './functions/drawPlanet.js';
+import rgbColor from './functions/rgbColor.js';
+
+const generatePlanet = () => {
+  const canvas = document.getElementById('mainCanvas')
+  drawPlanet(canvas, {
+    xRot: xRot.value * Math.PI * 2 / 16,
+    yRot: yRot.value * Math.PI * 2 / 16,
+    zRot: zRot.value * Math.PI * 2 / 16,
+    nColor: rgbColor(nColor.value),
+    eColor: rgbColor(eColor.value),
+    sColor: rgbColor(sColor.value),
+    radius: radius.value
+  })
+};
 
 const inputChange = () => {
   const xRot = document.getElementById('xRot').value;
@@ -16,26 +30,11 @@ const inputChange = () => {
   document.getElementById('nColorDis').innerText = nColor;
   document.getElementById('eColorDis').innerText = eColor;
   document.getElementById('sColorDis').innerText = sColor;
+
+  generatePlanet()
 };
 
 inputChange();
-
-const generatePlanet = () => {
-  console.log(xRot);
-  console.log(yRot);
-  console.log(zRot);
-  console.log(radius);
-  console.log(nColor);
-  console.log(eColor);
-  console.log(sColor);
-  const canvas = document.getElementById('mainCanvas')
-  drawPlanet(canvas, {
-    xRot: xRot.value * Math.PI * 2 / 16,
-    yRot: yRot.value * Math.PI * 2 / 16,
-    zRot: zRot.value * Math.PI * 2 / 16,
-    nColor, eColor, sColor
-  })
-};
 
 // const xRot = document.getElementById('xRot').value;
 // const yRot = document.getElementById('yRot').value;
