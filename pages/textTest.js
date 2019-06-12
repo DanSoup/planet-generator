@@ -18,7 +18,7 @@ for (let y = 0; y < 256; y++) {
   };
 };
 
-let image = writeText('ABCDEFGHIJKLMNOPQRSTUVWXYZ A A A A');
+let image = writeText('ABCDEFGHIJK');
 
 image.forEach((row, y) => {
   row.forEach((cell, x) => {
@@ -29,13 +29,24 @@ image.forEach((row, y) => {
   });
 });
 
-image = writeText('LMNOPQRSTUVWXYZ A A A A');
+image = writeText('LMNOPQRSTU');
 
 image.forEach((row, y) => {
   row.forEach((cell, x) => {
     if (cell === 1) {
       ctx.fillStyle = '#000000ff';
       ctx.fillRect(x * 4, y * 4 + 40, 4, 4);
+    };
+  });
+});
+
+image = writeText('VWXYZ A BAG');
+
+image.forEach((row, y) => {
+  row.forEach((cell, x) => {
+    if (cell === 1) {
+      ctx.fillStyle = '#000000ff';
+      ctx.fillRect(x * 4, y * 4 + 80, 4, 4);
     };
   });
 });
