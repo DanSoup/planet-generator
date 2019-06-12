@@ -1,12 +1,17 @@
-import letters from './letters.js';
+import fonts from './resources/fonts/index.js';
 
-const writeText = (string) => {
+const writeText = (string, font = 'capitals') => {
 
-  const image = [[], [], [], [], [], [], []];
+  const curFont = fonts[font];
+
+  const image = [];
+
+  for (let i = 0; i < curFont.meta.height; i++) image.push([]);
 
   let cursorPos = 0;
 
   const addLetter = letter => {
+    console.log(letter)
     let maxX = 0;
     letter.forEach((row, y) => {
       row.forEach((cell, x) => {
@@ -14,11 +19,11 @@ const writeText = (string) => {
         maxX = Math.max(maxX, x);
       })
     })
-    cursorPos += maxX + 3;
+    cursorPos += maxX + 2;
   }
 
   string.split('').forEach(letter => {
-    addLetter(letters[letter])
+    addLetter(curFont[letter])
   })
   
   return image;

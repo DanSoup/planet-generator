@@ -18,14 +18,24 @@ for (let y = 0; y < 256; y++) {
   };
 };
 
-let image = writeText('hello');
+let image = writeText('ABCDEFGHIJKLMNOPQRSTUVWXYZ A A A A');
 
 image.forEach((row, y) => {
   row.forEach((cell, x) => {
-    console.log(cell)
     if (cell === 1) {
       ctx.fillStyle = '#000000ff';
-      ctx.fillRect(x, y, 1, 1);
+      ctx.fillRect(x * 4, y * 4, 4, 4);
+    };
+  });
+});
+
+image = writeText('LMNOPQRSTUVWXYZ A A A A');
+
+image.forEach((row, y) => {
+  row.forEach((cell, x) => {
+    if (cell === 1) {
+      ctx.fillStyle = '#000000ff';
+      ctx.fillRect(x * 4, y * 4 + 40, 4, 4);
     };
   });
 });
