@@ -18,7 +18,7 @@ for (let y = 0; y < 256; y++) {
   };
 };
 
-let image = writeText('ABCDEFGHIJK');
+let image = writeText('abcdefghijk');
 
 image.forEach((row, y) => {
   row.forEach((cell, x) => {
@@ -29,7 +29,7 @@ image.forEach((row, y) => {
   });
 });
 
-image = writeText('LMNOPQRSTU');
+image = writeText('lmnopqrstu');
 
 image.forEach((row, y) => {
   row.forEach((cell, x) => {
@@ -40,7 +40,7 @@ image.forEach((row, y) => {
   });
 });
 
-image = writeText('VWXYZ A BAG');
+image = writeText('vwxyz a bag');
 
 image.forEach((row, y) => {
   row.forEach((cell, x) => {
