@@ -18,9 +18,9 @@ const sidebarPage = (cursor, state) => {
     if (cursor.b === 'down') hover = false;
     if (hover && cursor.b === 'click') state.page = text;
 
-    image.push({color: hover ? clear : border, x: sX, y: sY, w: 57, h: 13});
-    image.push({color: !hover ? clear : border, x: sX + 1, y: sY + 1, w: 55, h: 11});
-    image.push(...writeText(text, hover ? clear : border, sX + 4, sY + 4));
+    image.push({color: border, x: sX, y: sY, w: 57, h: 13});
+    image.push({color: !hover ? clear : background, x: sX + 1, y: sY + 1, w: 55, h: 11});
+    image.push(...writeText(text, border, sX + 4, sY + 4));
   }
 
   button(4, 30, 'search');

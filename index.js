@@ -10,7 +10,7 @@ const mainCanvas = document.getElementById('mainCanvas');
 const fpsDisplay = document.getElementById('fpsDisplay');
 const ctx = mainCanvas.getContext('2d');
 
-const scale = 3;
+const scale = 5;
 let frame = 0;
 
 const state = {
@@ -26,7 +26,7 @@ const draw = imageData => {
     ctx.fillRect(x * scale, y * scale, w * scale, h * scale)
   })
 
-  const debug = false;
+  const debug = true;
 
   ctx.fillStyle = '#FF000080';
   if (debug) {
