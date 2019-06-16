@@ -25,11 +25,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="218.01595"
-     inkscape:cy="98.544333"
+     inkscape:zoom="2"
+     inkscape:cx="161.56475"
+     inkscape:cy="123.30695"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer5"
+     inkscape:current-layer="layer6"
      showgrid="false"
      units="px"
      fit-margin-top="0"
@@ -39,8 +39,8 @@
      inkscape:snap-page="true"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-x="1912"
+     inkscape:window-y="81"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -79,7 +79,7 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Atlas"
-     style="display:inline">
+     style="display:none">
     <path
        style="display:inline;fill:#fff41c;fill-opacity:0.99215686;stroke:none;stroke-width:0.26458332;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
        d="M 0,1.2544454e-6 V 59.531246 H 105.83334 V 1.2544454e-6 Z M 0.264583,0.26458425 H 105.56876 V 59.266668 H 0.264583 Z"
@@ -142,12 +142,244 @@
        id="path1991"
        d="M 17.991866,1.058499 V 58.473081 H 50.271034 V 1.058499 Z m 0.264584,0.264583 h 31.75 v 56.885416 h -31.75 z"
        style="display:inline;fill:#fff41d;fill-opacity:0.98927612;stroke:none;stroke-width:1.05833328;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill" />
+    <text
+       id="text1995"
+       y="22.632185"
+       x="29.596193"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px"
+         y="22.632185"
+         x="29.596193"
+         id="tspan1993"
+         sodipodi:role="line">PLANERTGD</tspan></text>
+    <rect
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1997"
+       width="4.2333331"
+       height="4.2333331"
+       x="18.256451"
+       y="19.843916" />
+    <path
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 18.256451,24.077246 h 31.794098 v 0.264583 H 18.256451 Z"
+       id="rect1999"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 19.84375,20.372915 v 0.264583 h -0.264584 v 0.264583 h -0.264583 v 0.264583 H 19.05 v 0.264584 h -0.264584 v 1.058333 H 19.05 v 0.264583 h 0.264583 v 0.264584 h 0.264583 v 0.264583 h 0.264584 v 0.264583 h 1.058333 v -0.264583 h 0.264583 v -0.264583 h 0.264584 v -0.264584 h 0.264583 v -0.264583 h 0.264583 V 21.431248 H 21.695833 V 21.166664 H 21.43125 v -0.264583 h -0.264584 v -0.264583 h -0.264583 v -0.264583 z"
+       id="rect2002"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="29.596193"
+       y="27.1301"
+       id="text2015"><tspan
+         sodipodi:role="line"
+         id="tspan2013"
+         x="29.596193"
+         y="27.1301"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px">PLANERTGD</tspan></text>
+    <rect
+       y="24.341831"
+       x="18.256451"
+       height="4.2333331"
+       width="4.2333331"
+       id="rect2017"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path2019"
+       d="m 18.256451,28.575161 h 31.794098 v 0.264583 H 18.256451 Z"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       id="path2021"
+       d="m 19.84375,24.87083 v 0.264583 h -0.264584 v 0.264584 H 19.314583 V 25.66458 H 19.05 v 0.264583 h -0.264584 v 1.058333 H 19.05 v 0.264584 h 0.264583 v 0.264583 h 0.264583 v 0.264583 h 0.264584 v 0.264584 h 1.058333 v -0.264584 h 0.264583 V 27.516663 H 21.43125 V 27.25208 h 0.264583 v -0.264584 h 0.264583 V 25.929163 H 21.695833 V 25.66458 H 21.43125 V 25.399997 H 21.166666 V 25.135413 H 20.902083 V 24.87083 Z"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="29.596193"
+       y="31.628019"
+       id="text2025"><tspan
+         sodipodi:role="line"
+         id="tspan2023"
+         x="29.596193"
+         y="31.628019"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px">PLANERTGD</tspan></text>
+    <rect
+       y="28.839752"
+       x="18.256451"
+       height="4.2333331"
+       width="4.2333331"
+       id="rect2027"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path2029"
+       d="M 18.256451,33.073077 H 50.050549 V 33.33766 H 18.256451 Z"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       id="path2031"
+       d="m 19.84375,29.368746 v 0.264584 h -0.264584 v 0.264582 h -0.264583 v 0.264583 H 19.05 v 0.264584 h -0.264584 v 1.058333 H 19.05 v 0.264583 h 0.264583 v 0.264584 h 0.264583 v 0.264583 h 0.264584 v 0.264583 h 1.058333 v -0.264583 h 0.264583 v -0.264583 h 0.264584 v -0.264584 h 0.264583 v -0.264583 h 0.264583 V 30.427079 H 21.695833 V 30.162495 H 21.43125 V 29.897912 H 21.166666 V 29.63333 h -0.264583 v -0.264584 z"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
+    <text
+       id="text2035"
+       y="36.125935"
+       x="29.596193"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px"
+         y="36.125935"
+         x="29.596193"
+         id="tspan2033"
+         sodipodi:role="line">PLANERTGD</tspan></text>
+    <rect
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2037"
+       width="4.2333331"
+       height="4.2333331"
+       x="18.256451"
+       y="33.337666" />
+    <path
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 18.256451,37.570992 h 31.794098 v 0.264583 H 18.256451 Z"
+       id="path2039"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 19.84375,33.866661 v 0.264583 h -0.264584 v 0.264584 h -0.264583 v 0.264583 H 19.05 v 0.264583 h -0.264584 v 1.058333 H 19.05 v 0.264584 h 0.264583 v 0.264583 h 0.264583 v 0.264583 h 0.264584 v 0.264584 h 1.058333 v -0.264584 h 0.264583 v -0.264583 h 0.264584 v -0.264583 h 0.264583 v -0.264584 h 0.264583 V 34.924994 H 21.695833 V 34.660411 H 21.43125 v -0.264583 h -0.264584 v -0.264584 h -0.264583 v -0.264583 z"
+       id="path2041" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="29.596193"
+       y="40.623848"
+       id="text2045"><tspan
+         sodipodi:role="line"
+         id="tspan2043"
+         x="29.596193"
+         y="40.623848"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px">PLANERTGD</tspan></text>
+    <rect
+       y="37.835583"
+       x="18.256451"
+       height="4.2333331"
+       width="4.2333331"
+       id="rect2047"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path2049"
+       d="m 18.256451,42.068911 h 31.794098 v 0.264583 H 18.256451 Z"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       id="path2051"
+       d="m 19.84375,38.36458 v 0.264583 h -0.264584 v 0.264583 h -0.264583 v 0.264583 H 19.05 v 0.264584 h -0.264584 v 1.058333 H 19.05 v 0.264583 h 0.264583 v 0.264584 h 0.264583 v 0.264583 h 0.264584 v 0.264583 h 1.058333 v -0.264583 h 0.264583 v -0.264583 h 0.264584 v -0.264584 h 0.264583 v -0.264583 h 0.264583 V 39.422913 H 21.695833 V 39.158329 H 21.43125 V 38.893746 H 21.166666 V 38.629163 H 20.902083 V 38.36458 Z"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
+    <text
+       id="text2055"
+       y="45.121761"
+       x="29.596193"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px"
+         y="45.121761"
+         x="29.596193"
+         id="tspan2053"
+         sodipodi:role="line">PLANERTGD</tspan></text>
+    <rect
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2057"
+       width="4.2333331"
+       height="4.2333331"
+       x="18.256451"
+       y="42.333496" />
+    <path
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 18.256451,46.566826 H 50.050549 V 46.83141 H 18.256451 Z"
+       id="path2059"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 19.84375,42.862495 v 0.264583 h -0.264584 v 0.264584 h -0.264583 v 0.264583 H 19.05 v 0.264583 h -0.264584 v 1.058333 H 19.05 v 0.264584 h 0.264583 v 0.264583 h 0.264583 v 0.264583 h 0.264584 v 0.264584 h 1.058333 v -0.264584 h 0.264583 v -0.264583 h 0.264584 v -0.264583 h 0.264583 v -0.264584 h 0.264583 V 43.920828 H 21.695833 V 43.656245 H 21.43125 v -0.264583 h -0.264584 v -0.264584 h -0.264583 v -0.264583 z"
+       id="path2061" />
+    <text
+       id="text2065"
+       y="49.619675"
+       x="29.596193"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px"
+         y="49.619675"
+         x="29.596193"
+         id="tspan2063"
+         sodipodi:role="line">PLANERTGD</tspan></text>
+    <rect
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2067"
+       width="4.2333331"
+       height="4.2333331"
+       x="18.256451"
+       y="46.831413" />
+    <path
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 18.256451,51.064743 h 31.794098 v 0.264583 H 18.256451 Z"
+       id="path2069"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 19.84375,47.360412 v 0.264584 h -0.264584 v 0.26458 H 19.314583 V 48.15416 H 19.05 v 0.264586 h -0.264584 v 1.05833 H 19.05 v 0.264584 h 0.264583 v 0.264586 h 0.264583 v 0.26458 h 0.264584 v 0.264584 h 1.058333 v -0.264584 h 0.264583 v -0.26458 H 21.43125 V 49.74166 h 0.264583 v -0.264584 h 0.264583 v -1.05833 H 21.695833 V 48.15416 H 21.43125 v -0.264584 h -0.264584 v -0.26458 h -0.264583 v -0.264584 z"
+       id="path2071" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="29.596193"
+       y="54.117588"
+       id="text2075"><tspan
+         sodipodi:role="line"
+         id="tspan2073"
+         x="29.596193"
+         y="54.117588"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px">PLANERTGD</tspan></text>
+    <rect
+       y="51.329323"
+       x="18.256451"
+       height="4.2333331"
+       width="4.2333331"
+       id="rect2077"
+       style="display:inline;opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path2079"
+       d="M 18.256451,55.562657 H 50.050549 V 55.82724 H 18.256451 Z"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       id="path2081"
+       d="m 19.84375,51.858326 v 0.264584 h -0.264584 v 0.264583 h -0.264583 v 0.264583 H 19.05 v 0.264584 h -0.264584 v 1.058333 H 19.05 v 0.264583 h 0.264583 v 0.264584 h 0.264583 v 0.264583 h 0.264584 v 0.264583 h 1.058333 v -0.264583 h 0.264583 V 54.50416 h 0.264584 v -0.264584 h 0.264583 v -0.264583 h 0.264583 V 52.91666 H 21.695833 V 52.652076 H 21.43125 V 52.387493 H 21.166666 V 52.12291 h -0.264583 v -0.264584 z"
+       style="display:inline;opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="Search"
-     style="display:none"
+     style="display:inline"
      transform="translate(-45.657246,-44.538124)">
     <path
        style="display:inline;opacity:1;fill:#fdf31c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401886;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -736,7 +968,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer1"
-     inkscape:label="Sidebar">
+     inkscape:label="Sidebar"
+     style="display:inline">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -825,237 +1058,5 @@
        height="59.53125"
        x="16.933334"
        y="-6.6830544e-006" />
-    <text
-       id="text1995"
-       y="22.632185"
-       x="29.596193"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px"
-         y="22.632185"
-         x="29.596193"
-         id="tspan1993"
-         sodipodi:role="line">PLANERTGD</tspan></text>
-    <rect
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect1997"
-       width="4.2333331"
-       height="4.2333331"
-       x="18.256451"
-       y="19.843916" />
-    <path
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 18.256451,24.077247 H 50.050548 V 24.34183 H 18.256451 Z"
-       id="rect1999"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 19.84375,20.372916 v 0.264583 h -0.264584 v 0.264583 h -0.264583 v 0.264583 H 19.05 v 0.264584 h -0.264584 v 1.058333 H 19.05 v 0.264583 h 0.264583 v 0.264584 h 0.264583 v 0.264583 h 0.264584 v 0.264583 h 1.058333 v -0.264583 h 0.264583 v -0.264583 h 0.264584 v -0.264584 h 0.264583 v -0.264583 h 0.264583 V 21.431249 H 21.695833 V 21.166665 H 21.43125 v -0.264583 h -0.264584 v -0.264583 h -0.264583 v -0.264583 z"
-       id="rect2002"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="29.596193"
-       y="27.1301"
-       id="text2015"><tspan
-         sodipodi:role="line"
-         id="tspan2013"
-         x="29.596193"
-         y="27.1301"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px">PLANERTGD</tspan></text>
-    <rect
-       y="24.341831"
-       x="18.256451"
-       height="4.2333331"
-       width="4.2333331"
-       id="rect2017"
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path2019"
-       d="m 18.256451,28.575162 h 31.794097 v 0.264583 H 18.256451 Z"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       id="path2021"
-       d="m 19.84375,24.870831 v 0.264583 h -0.264584 v 0.264584 h -0.264583 v 0.264583 H 19.05 v 0.264583 h -0.264584 v 1.058333 H 19.05 v 0.264584 h 0.264583 v 0.264583 h 0.264583 v 0.264583 h 0.264584 v 0.264584 h 1.058333 v -0.264584 h 0.264583 v -0.264583 h 0.264584 v -0.264583 h 0.264583 v -0.264584 h 0.264583 V 25.929164 H 21.695833 V 25.664581 H 21.43125 v -0.264583 h -0.264584 v -0.264584 h -0.264583 v -0.264583 z"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="29.596193"
-       y="31.628019"
-       id="text2025"><tspan
-         sodipodi:role="line"
-         id="tspan2023"
-         x="29.596193"
-         y="31.628019"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px">PLANERTGD</tspan></text>
-    <rect
-       y="28.839752"
-       x="18.256451"
-       height="4.2333331"
-       width="4.2333331"
-       id="rect2027"
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path2029"
-       d="m 18.256451,33.073078 h 31.794097 v 0.264583 H 18.256451 Z"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       id="path2031"
-       d="m 19.84375,29.368747 v 0.264583 h -0.264584 v 0.264583 h -0.264583 v 0.264583 H 19.05 v 0.264584 h -0.264584 v 1.058333 H 19.05 v 0.264583 h 0.264583 v 0.264584 h 0.264583 v 0.264583 h 0.264584 v 0.264583 h 1.058333 v -0.264583 h 0.264583 V 32.01458 h 0.264584 v -0.264584 h 0.264583 v -0.264583 h 0.264583 V 30.42708 H 21.695833 V 30.162496 H 21.43125 V 29.897913 H 21.166666 V 29.63333 h -0.264583 v -0.264583 z"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       inkscape:connector-curvature="0" />
-    <text
-       id="text2035"
-       y="36.125935"
-       x="29.596193"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px"
-         y="36.125935"
-         x="29.596193"
-         id="tspan2033"
-         sodipodi:role="line">PLANERTGD</tspan></text>
-    <rect
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2037"
-       width="4.2333331"
-       height="4.2333331"
-       x="18.256451"
-       y="33.337666" />
-    <path
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 18.256451,37.570993 h 31.794097 v 0.264583 H 18.256451 Z"
-       id="path2039"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       inkscape:connector-curvature="0"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 19.84375,33.866662 v 0.264583 h -0.264584 v 0.264584 h -0.264583 v 0.264583 H 19.05 v 0.264583 h -0.264584 v 1.058333 H 19.05 v 0.264584 h 0.264583 v 0.264583 h 0.264583 v 0.264583 h 0.264584 v 0.264584 h 1.058333 v -0.264584 h 0.264583 v -0.264583 h 0.264584 v -0.264583 h 0.264583 v -0.264584 h 0.264583 V 34.924995 H 21.695833 V 34.660412 H 21.43125 v -0.264583 h -0.264584 v -0.264584 h -0.264583 v -0.264583 z"
-       id="path2041" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="29.596193"
-       y="40.623848"
-       id="text2045"><tspan
-         sodipodi:role="line"
-         id="tspan2043"
-         x="29.596193"
-         y="40.623848"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px">PLANERTGD</tspan></text>
-    <rect
-       y="37.835583"
-       x="18.256451"
-       height="4.2333331"
-       width="4.2333331"
-       id="rect2047"
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path2049"
-       d="m 18.256451,42.068912 h 31.794097 v 0.264583 H 18.256451 Z"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       id="path2051"
-       d="m 19.84375,38.364581 v 0.264583 h -0.264584 v 0.264583 H 19.314583 V 39.15833 H 19.05 v 0.264584 h -0.264584 v 1.058333 H 19.05 v 0.264583 h 0.264583 v 0.264584 h 0.264583 v 0.264583 h 0.264584 v 0.264583 h 1.058333 v -0.264583 h 0.264583 V 41.010414 H 21.43125 V 40.74583 h 0.264583 v -0.264583 h 0.264583 V 39.422914 H 21.695833 V 39.15833 H 21.43125 v -0.264583 h -0.264584 v -0.264583 h -0.264583 v -0.264583 z"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       inkscape:connector-curvature="0" />
-    <text
-       id="text2055"
-       y="45.121761"
-       x="29.596193"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px"
-         y="45.121761"
-         x="29.596193"
-         id="tspan2053"
-         sodipodi:role="line">PLANERTGD</tspan></text>
-    <rect
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2057"
-       width="4.2333331"
-       height="4.2333331"
-       x="18.256451"
-       y="42.333496" />
-    <path
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 18.256451,46.566827 H 50.050548 V 46.83141 H 18.256451 Z"
-       id="path2059"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       inkscape:connector-curvature="0"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 19.84375,42.862496 v 0.264583 h -0.264584 v 0.264584 h -0.264583 v 0.264583 H 19.05 v 0.264583 h -0.264584 v 1.058333 H 19.05 v 0.264584 h 0.264583 v 0.264583 h 0.264583 v 0.264583 h 0.264584 v 0.264584 h 1.058333 v -0.264584 h 0.264583 v -0.264583 h 0.264584 v -0.264583 h 0.264583 v -0.264584 h 0.264583 V 43.920829 H 21.695833 V 43.656246 H 21.43125 v -0.264583 h -0.264584 v -0.264584 h -0.264583 v -0.264583 z"
-       id="path2061" />
-    <text
-       id="text2065"
-       y="49.619678"
-       x="29.596193"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px"
-         y="49.619678"
-         x="29.596193"
-         id="tspan2063"
-         sodipodi:role="line">PLANERTGD</tspan></text>
-    <rect
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect2067"
-       width="4.2333331"
-       height="4.2333331"
-       x="18.256451"
-       y="46.831413" />
-    <path
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 18.256451,51.064743 h 31.794097 v 0.264583 H 18.256451 Z"
-       id="path2069"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       inkscape:connector-curvature="0"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 19.84375,47.360412 v 0.264583 h -0.264584 v 0.264583 h -0.264583 v 0.264583 H 19.05 v 0.264584 h -0.264584 v 1.058333 H 19.05 v 0.264583 h 0.264583 v 0.264584 h 0.264583 v 0.264583 h 0.264584 v 0.264583 h 1.058333 v -0.264583 h 0.264583 v -0.264583 h 0.264584 v -0.264584 h 0.264583 v -0.264583 h 0.264583 V 48.418745 H 21.695833 V 48.154161 H 21.43125 v -0.264583 h -0.264584 v -0.264583 h -0.264583 v -0.264583 z"
-       id="path2071" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:1.32297051px;line-height:125%;font-family:'Cracked Johnnie';-inkscape-font-specification:'Cracked Johnnie Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#fffd09;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="29.596193"
-       y="54.117592"
-       id="text2075"><tspan
-         sodipodi:role="line"
-         id="tspan2073"
-         x="29.596193"
-         y="54.117592"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Pixeled;-inkscape-font-specification:'Pixeled Bold';fill:#fffd09;fill-opacity:1;stroke-width:0.26458332px">PLANERTGD</tspan></text>
-    <rect
-       y="51.329323"
-       x="18.256451"
-       height="4.2333331"
-       width="4.2333331"
-       id="rect2077"
-       style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path2079"
-       d="m 18.256451,55.562658 h 31.794097 v 0.264583 H 18.256451 Z"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    <path
-       id="path2081"
-       d="m 19.84375,51.858327 v 0.264583 h -0.264584 v 0.264584 h -0.264583 v 0.264583 H 19.05 v 0.264583 h -0.264584 v 1.058333 H 19.05 v 0.264584 h 0.264583 v 0.264583 h 0.264583 v 0.264583 h 0.264584 v 0.264584 h 1.058333 v -0.264584 h 0.264583 V 54.50416 h 0.264584 v -0.264583 h 0.264583 v -0.264584 h 0.264583 V 52.91666 H 21.695833 V 52.652077 H 21.43125 V 52.387494 H 21.166666 V 52.12291 h -0.264583 v -0.264583 z"
-       style="opacity:1;fill:#fff41c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       inkscape:connector-curvature="0" />
   </g>
 </svg>
