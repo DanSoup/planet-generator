@@ -14,7 +14,7 @@
    viewBox="0 0 105.83332 59.531248"
    version="1.1"
    id="svg8"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="mockups.svg">
   <defs
      id="defs2" />
@@ -25,11 +25,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="161.56475"
-     inkscape:cy="123.30695"
+     inkscape:zoom="2.8284271"
+     inkscape:cx="211.51895"
+     inkscape:cy="81.924651"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer6"
+     inkscape:current-layer="layer5"
      showgrid="false"
      units="px"
      fit-margin-top="0"
@@ -39,8 +39,8 @@
      inkscape:snap-page="true"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
-     inkscape:window-x="1912"
-     inkscape:window-y="81"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
@@ -96,7 +96,7 @@
        width="0.26458332"
        height="59.53125"
        x="16.933334"
-       y="-6.6830544e-006" />
+       y="-6.6830544e-06" />
     <path
        style="opacity:1;fill:#fdf21d;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401874;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 85.725014,1.0583342 V 18.520833 H 103.18754 V 1.0583342 Z m 0.264583,0.2645833 H 102.92296 V 18.256249 H 85.989597 Z"
@@ -379,7 +379,7 @@
      inkscape:groupmode="layer"
      id="layer6"
      inkscape:label="Search"
-     style="display:inline"
+     style="display:none"
      transform="translate(-45.657246,-44.538124)">
     <path
        style="display:inline;opacity:1;fill:#fdf31c;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.67401886;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -877,7 +877,7 @@
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Cameras"
-     style="display:none">
+     style="display:inline">
     <path
        style="fill:#000000;fill-opacity:0.58585857;stroke:none;stroke-width:1.0583334;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:markers stroke fill"
        d="M 57.471056,4.5358619 V 21.998362 h 17.4625 V 4.5358619 Z m 0.264583,0.2645833 H 74.668973 V 21.733778 H 57.735639 Z"
