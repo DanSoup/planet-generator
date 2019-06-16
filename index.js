@@ -3,13 +3,19 @@
 // import generateTerrain from './functions/generateTerrain.js';
 import hexColor from './pages/functions/hexColor.js';
 import searchPage from './pages/searchPage.js';
+import sidebarPage from './pages/sidebarPage.js';
+import photoPage from './pages/photoPage.js';
 
 const mainCanvas = document.getElementById('mainCanvas');
 const fpsDisplay = document.getElementById('fpsDisplay');
 const ctx = mainCanvas.getContext('2d');
 
-const scale = 5;
+const scale = 3;
 let frame = 0;
+
+const state = {
+  page: 'search'
+}
 
 mainCanvas.setAttribute('height', 225 * scale);
 mainCanvas.setAttribute('width', 400 * scale);
@@ -20,7 +26,7 @@ const draw = imageData => {
     ctx.fillRect(x * scale, y * scale, w * scale, h * scale)
   })
 
-  const debug = true;
+  const debug = false;
 
   ctx.fillStyle = '#FF000080';
   if (debug) {
@@ -34,15 +40,38 @@ const draw = imageData => {
 
 };
 
+let cursor = {x: 0, y: 0, b: 'up'};
+
+const getMousePos = evt => {
+  var rect = mainCanvas.getBoundingClientRect();
+  cursor.x = Math.floor((evt.clientX - rect.left) / scale);
+  cursor.y = Math.floor((evt.clientY - rect.top) / scale);
+}
+
+const handleMouseDown = e => {
+  cursor.b = 'down';
+}
+
+const handleMouseUp = e => {
+  cursor.b = 'click';  
+}
+
+mainCanvas.addEventListener('mousemove', getMousePos);
+mainCanvas.addEventListener('mousedown', handleMouseDown);
+mainCanvas.addEventListener('mouseup', handleMouseUp);
+
 const advanceFrame = timestamp => {
 
   ctx.clearRect(0, 0, 400 * scale, 225 * scale)
   const imageData = [{color: {r: 1, g: 0, b: 0, a: 1}, x: 100, y: 0, w: 100, h: 200}];
 
-  imageData.push(...searchPage());
+  imageData.push(...sidebarPage(cursor,  state));
+  if (state.page === 'search') imageData.push(...searchPage(cursor, state));
+  if (state.page === 'photo') imageData.push(...photoPage(cursor));
 
   draw(imageData)
   
+  if (cursor.b === 'click') cursor.b = 'up';
   setTimeout(() => window.requestAnimationFrame(advanceFrame), 1000 / 60);
 };
 
