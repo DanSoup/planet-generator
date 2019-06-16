@@ -53,6 +53,20 @@ const searchPage = () => {
   image.push({color: border, x: 246, y: 13, w: 14, h: 2});
   image.push({color: border, x: 252, y: 7, w: 2, h: 14});
 
+  image.push({color: border, x: 228, y: 28, w: 8, h: 2});
+  image.push({color: border, x: 228, y: 40, w: 8, h: 2});
+  image.push({color: border, x: 225, y: 31, w: 2, h: 8});
+  image.push({color: border, x: 237, y: 31, w: 2, h: 8});
+  image.push({color: border, x: 227, y: 29, w: 2, h: 2});
+  image.push({color: border, x: 226, y: 30, w: 2, h: 2});
+  image.push({color: border, x: 235, y: 39, w: 2, h: 2});
+  image.push({color: border, x: 236, y: 38, w: 2, h: 2});
+  image.push({color: border, x: 227, y: 39, w: 2, h: 2});
+  image.push({color: border, x: 226, y: 38, w: 2, h: 2});
+  image.push({color: border, x: 235, y: 29, w: 2, h: 2});
+  image.push({color: border, x: 236, y: 30, w: 2, h: 2});
+  image.push({color: border, x: 231, y: 34, w: 2, h: 2});
+
   image.push({color: border, x: 204, y: 34, w: 14, h: 2});
   image.push({color: border, x: 205, y: 33, w: 1, h: 4});
   image.push({color: border, x: 206, y: 32, w: 1, h: 6});
