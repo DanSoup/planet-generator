@@ -1,7 +1,7 @@
 import colors from './functions/resources/colors.js';
 import writeText from './functions/writeText.js';
 
-const searchPage = () => {
+const searchPage = (cursor, state) => {
 
   const image = [];
   const {background, border, sidebar, clear, highlight} = colors.default;
@@ -138,6 +138,11 @@ const searchPage = () => {
   image.push({color: border, x: 252, y: 56, w: 1, h: 2});
   image.push({color: border, x: 254, y: 55, w: 3, h: 3});
 
+  // Space Objects
+
+  state.cosmos.forEach(sO => {
+    image.push({color: sO.color, x: sO.x + 69, y: sO.y + 5, w: sO.radius, h: sO.radius})
+  });
 
   // Left Window Target
   image.push({color: highlight, x: 69, y: 5, w: 128, h: 1});

@@ -5,17 +5,64 @@ import hexColor from './pages/functions/hexColor.js';
 import searchPage from './pages/searchPage.js';
 import sidebarPage from './pages/sidebarPage.js';
 import photoPage from './pages/photoPage.js';
+import xorshift from './pages/functions/xorshift.js';
 
 const mainCanvas = document.getElementById('mainCanvas');
 const fpsDisplay = document.getElementById('fpsDisplay');
 const ctx = mainCanvas.getContext('2d');
 
-const scale = 5;
+const scale = 3;
 let frame = 0;
+let seed = 101;
 
 const state = {
-  page: 'search'
+  initialSeed: seed,
+  planetSeed: seed + 1,
+  page: 'search',
+  cosmos: [
+
+  ]
 }
+
+class SpaceObject {
+  constructor () {
+    this.id = state.cosmos.length + 1;
+    this.seed = Math.abs(state.planetSeed);
+  };
+  get radius () {
+    return this.seed % 5 + 1;
+  };
+  get diameter () {
+    return this.radius * 2;
+  };
+  get x () {
+    return this.seed % 128;
+  };
+  get y () {
+    return Math.floor((this.seed / 128) % 128) 
+  };
+  get color () {
+    return {
+      r: this.seed / 100 % 1,
+      g: this.seed / 10000 % 1,
+      b: this.seed / 1000000 % 1,
+      a: 1
+    }
+  }
+}
+
+const createObject = () => {
+  state.planetSeed = xorshift(state.planetSeed);
+  state.cosmos.push(new SpaceObject());
+}
+
+for (let i = 0; i < 5; i++) {
+  createObject();
+}
+
+state.cosmos.forEach(sO => {
+  console.log(sO.diameter, sO.x, sO.y)
+})
 
 mainCanvas.setAttribute('height', 225 * scale);
 mainCanvas.setAttribute('width', 400 * scale);
@@ -26,7 +73,7 @@ const draw = imageData => {
     ctx.fillRect(x * scale, y * scale, w * scale, h * scale)
   })
 
-  const debug = true;
+  const debug = 0;
 
   ctx.fillStyle = '#FF000080';
   if (debug) {
