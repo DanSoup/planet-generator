@@ -13,7 +13,7 @@ const ctx = mainCanvas.getContext('2d');
 
 const scale = 3;
 let frame = 0;
-let seed = 105;
+let seed = 100;
 
 const state = {
   initialSeed: seed,
@@ -27,27 +27,30 @@ const state = {
 class SpaceObject {
   constructor () {
     this.id = state.cosmos.length + 1;
-    this.seed = Math.abs(state.planetSeed);
+    this.seed = state.planetSeed;
   };
   get diameter () {
-    return this.seed % 7 + 1;
+    return xorshift(this.seed, 1) % 1000000000;
   };
   get radius () {
     return this.diameter / 2;
   };
   get x () {
-    return this.seed % 128;
+    return Math.floor((xorshift(this.seed, 2) % (128 ** 2)) / 128);
   };
   get y () {
-    return Math.floor((this.seed / 128) % 128) 
+    return Math.floor((xorshift(this.seed, 3) % (128 ** 2)) / 128);
   };
   get color () {
     return {
-      r: this.seed / 100 % 1,
-      g: this.seed / 10000 % 1,
-      b: this.seed / 1000000 % 1,
+      r: xorshift(this.seed, 4) / 100 % 1,
+      g: xorshift(this.seed, 4) / 10000 % 1,
+      b: xorshift(this.seed, 4) / 1000000 % 1,
       a: 1
     }
+  };
+  get distance () {
+    return xorshift(this.seed, 5) % 1000000000;
   }
 }
 
@@ -56,12 +59,12 @@ const createObject = () => {
   state.cosmos.push(new SpaceObject());
 }
 
-for (let i = 0; i < 20; i++) {
+for (let i = 0; i < 10; i++) {
   createObject();
 }
 
 state.cosmos.forEach(sO => {
-  console.log(sO.diameter, sO.x, sO.y)
+  // console.log(sO.diameter, sO.x, sO.y)
 })
 
 mainCanvas.setAttribute('height', 225 * scale);

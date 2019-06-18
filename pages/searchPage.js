@@ -140,22 +140,29 @@ const searchPage = (cursor, state) => {
 
   // Space Objects
 
-  state.cosmos.forEach(sO => {
+  state.cosmos.sort((a, b) => b.distance - a.distance).forEach(sO => {
 
-    const origin = {x: sO.x + 69 + sO.radius % 1, y: sO.y + 5 + sO.radius % 1};
+    const apparentRadius = sO.radius / sO.distance;
+    // const apparentRadius = sO.radius;
 
-    for (let x = 0 - sO.radius + ((sO.radius + 0.5) % 1); x <= sO.radius; x++) {
-      for (let y = 0 - sO.radius + ((sO.radius + 0.5) % 1); y <= sO.radius; y++) {
-        // console.log(x, y, x ** 2 + y ** 2 <= sO.radius ** 2)
-        if (x ** 2 + y ** 2 <= sO.radius ** 2) {
-          const pixelX = Math.floor(origin.x + x);
-          const pixelY = Math.floor(origin.y + y);
-          if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
-            image.push({color: sO.color, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+    const origin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
+
+    // if (apparentRadius >= 0.5 && sO.distance === 4) {
+    if (apparentRadius >= 0.5) {
+      for (let x = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); x <= apparentRadius; x++) {
+        for (let y = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); y <= apparentRadius; y++) {
+          // console.log(x, y, x ** 2 + y ** 2 <= apparentRadius ** 2)
+          if (x ** 2 + y ** 2 <= apparentRadius ** 2) {
+            const pixelX = Math.floor(origin.x + x);
+            const pixelY = Math.floor(origin.y + y);
+            if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              image.push({color: sO.color, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+            }
           }
-        }
+        };
       };
-    };
+    }
+
   });
 
   // Left Window Target
