@@ -141,14 +141,28 @@ const searchPage = (cursor, state) => {
   // Space Objects
 
   state.cosmos.forEach(sO => {
-    image.push({color: sO.color, x: sO.x + 69, y: sO.y + 5, w: sO.radius, h: sO.radius})
+
+    const origin = {x: sO.x + 69 + sO.radius % 1, y: sO.y + 5 + sO.radius % 1};
+
+    for (let x = 0 - sO.radius + ((sO.radius + 0.5) % 1); x <= sO.radius; x++) {
+      for (let y = 0 - sO.radius + ((sO.radius + 0.5) % 1); y <= sO.radius; y++) {
+        // console.log(x, y, x ** 2 + y ** 2 <= sO.radius ** 2)
+        if (x ** 2 + y ** 2 <= sO.radius ** 2) {
+          const pixelX = Math.floor(origin.x + x);
+          const pixelY = Math.floor(origin.y + y);
+          if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+            image.push({color: sO.color, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+          }
+        }
+      };
+    };
   });
 
   // Left Window Target
-  image.push({color: highlight, x: 69, y: 5, w: 128, h: 1});
-  image.push({color: highlight, x: 69, y: 5, w: 1, h: 128});
-  image.push({color: highlight, x: 69, y: 132, w: 128, h: 1});
-  image.push({color: highlight, x: 196, y: 5, w: 1, h: 128});
+  // image.push({color: highlight, x: 69, y: 5, w: 128, h: 1});
+  // image.push({color: highlight, x: 69, y: 5, w: 1, h: 128});
+  // image.push({color: highlight, x: 69, y: 132, w: 128, h: 1});
+  // image.push({color: highlight, x: 196, y: 5, w: 1, h: 128});
 
   return image;
 

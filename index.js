@@ -13,7 +13,7 @@ const ctx = mainCanvas.getContext('2d');
 
 const scale = 3;
 let frame = 0;
-let seed = 101;
+let seed = 105;
 
 const state = {
   initialSeed: seed,
@@ -29,11 +29,11 @@ class SpaceObject {
     this.id = state.cosmos.length + 1;
     this.seed = Math.abs(state.planetSeed);
   };
-  get radius () {
-    return this.seed % 5 + 1;
-  };
   get diameter () {
-    return this.radius * 2;
+    return this.seed % 7 + 1;
+  };
+  get radius () {
+    return this.diameter / 2;
   };
   get x () {
     return this.seed % 128;
@@ -56,7 +56,7 @@ const createObject = () => {
   state.cosmos.push(new SpaceObject());
 }
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 20; i++) {
   createObject();
 }
 
