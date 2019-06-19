@@ -19,9 +19,9 @@ const searchPage = (cursor, state) => {
   image.push({color: clear, x: 267, y: 5, w: 128, h: 128});
 
   // Scroll Window
-  image.push({color: border, x: 68, y: 137, w: 328, h: 84});
-  image.push({color: clear, x: 69, y: 138, w: 326, h: 76});
-  image.push({color: clear, x: 69, y: 215, w: 326, h: 5});
+  // image.push({color: border, x: 68, y: 137, w: 328, h: 84});
+  // image.push({color: clear, x: 69, y: 138, w: 326, h: 76});
+  // image.push({color: clear, x: 69, y: 215, w: 326, h: 5});
 
   // Buttons Top Row
   image.push({color: border, x: 201, y: 4, w: 20, h: 20});
@@ -166,10 +166,34 @@ const searchPage = (cursor, state) => {
   });
 
   // Left Window Target
-  // image.push({color: highlight, x: 69, y: 5, w: 128, h: 1});
-  // image.push({color: highlight, x: 69, y: 5, w: 1, h: 128});
-  // image.push({color: highlight, x: 69, y: 132, w: 128, h: 1});
-  // image.push({color: highlight, x: 196, y: 5, w: 1, h: 128});
+  image.push({color: highlight, x: 69, y: 5, w: 128, h: 1});
+  image.push({color: highlight, x: 69, y: 5, w: 1, h: 128});
+  image.push({color: highlight, x: 69, y: 132, w: 128, h: 1});
+  image.push({color: highlight, x: 196, y: 5, w: 1, h: 128});
+
+  // Planet windows
+  image.push({color: border, x: 68, y: 137, w: 66, h: 76});
+  image.push({color: clear, x: 69, y: 138, w: 64, h: 64});
+  image.push({color: clear, x: 69, y: 203, w: 64, h: 9});
+
+  image.push({color: border, x: 135, y: 137, w: 66, h: 76});
+  image.push({color: clear, x: 136, y: 138, w: 64, h: 64});
+  image.push({color: clear, x: 136, y: 203, w: 64, h: 9});
+
+  image.push({color: border, x: 202, y: 137, w: 66, h: 76});
+  image.push({color: clear, x: 203, y: 138, w: 64, h: 64});
+  image.push({color: clear, x: 203, y: 203, w: 64, h: 9});
+
+  image.push({color: border, x: 269, y: 137, w: 66, h: 76});
+  image.push({color: clear, x: 270, y: 138, w: 64, h: 64});
+  image.push({color: clear, x: 270, y: 203, w: 64, h: 9});
+
+  image.push({color: border, x: 337, y: 137, w: 29, h: 66});
+  image.push({color: clear, x: 338, y: 138, w: 27, h: 64});
+  image.push({color: border, x: 338 + 29, y: 137, w: 29, h: 66});
+  image.push({color: clear, x: 338 + 30, y: 138, w: 27, h: 64});
+
+  image.push(...writeText('planet', border, 70, 205))
 
   return image;
 
