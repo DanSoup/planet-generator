@@ -142,7 +142,7 @@ const searchPage = (cursor, state) => {
 
   state.cosmos.sort((a, b) => b.distance - a.distance).forEach(sO => {
 
-    const apparentRadius = sO.radius / sO.distance;
+    const apparentRadius = Math.ceil(sO.diameter / sO.distance) / 2;
     // const apparentRadius = sO.radius;
 
     const origin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};

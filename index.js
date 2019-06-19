@@ -30,7 +30,10 @@ class SpaceObject {
     this.seed = state.planetSeed;
   };
   get diameter () {
-    return xorshift(this.seed, 1) % 1000000000;
+    const min = this.distance;
+    const max = Math.min(min * 8, 1000000000)
+    const size = Math.floor((((xorshift(this.seed, 1) % 1001) / 1000) * (max - min)) + min)
+    return size;
   };
   get radius () {
     return this.diameter / 2;
@@ -50,7 +53,7 @@ class SpaceObject {
     }
   };
   get distance () {
-    return xorshift(this.seed, 5) % 1000000000;
+    return (xorshift(this.seed, 5) % 1000000000) + 1;
   }
 }
 
@@ -65,6 +68,8 @@ for (let i = 0; i < 10; i++) {
 
 state.cosmos.forEach(sO => {
   // console.log(sO.diameter, sO.x, sO.y)
+  // console.log(sO.diameter / sO.distance, sO.x, sO.y)    
+
 })
 
 mainCanvas.setAttribute('height', 225 * scale);
