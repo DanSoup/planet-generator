@@ -175,25 +175,61 @@ const searchPage = (cursor, state) => {
   image.push({color: border, x: 68, y: 137, w: 66, h: 76});
   image.push({color: clear, x: 69, y: 138, w: 64, h: 64});
   image.push({color: clear, x: 69, y: 203, w: 64, h: 9});
+  image.push(...writeText('earth', border, 70, 205))
 
   image.push({color: border, x: 135, y: 137, w: 66, h: 76});
   image.push({color: clear, x: 136, y: 138, w: 64, h: 64});
   image.push({color: clear, x: 136, y: 203, w: 64, h: 9});
+  image.push(...writeText('mars', border, 137, 205))
+
 
   image.push({color: border, x: 202, y: 137, w: 66, h: 76});
   image.push({color: clear, x: 203, y: 138, w: 64, h: 64});
   image.push({color: clear, x: 203, y: 203, w: 64, h: 9});
+  image.push(...writeText('venus', border, 204, 205))
 
   image.push({color: border, x: 269, y: 137, w: 66, h: 76});
   image.push({color: clear, x: 270, y: 138, w: 64, h: 64});
   image.push({color: clear, x: 270, y: 203, w: 64, h: 9});
+  image.push(...writeText('jupiter', border, 271, 205))
 
   image.push({color: border, x: 337, y: 137, w: 29, h: 66});
   image.push({color: clear, x: 338, y: 138, w: 27, h: 64});
+  image.push({color: border, x: 340, y: 140, w: 4, h: 60});
+
   image.push({color: border, x: 338 + 29, y: 137, w: 29, h: 66});
   image.push({color: clear, x: 338 + 30, y: 138, w: 27, h: 64});
 
-  image.push(...writeText('planet', border, 70, 205))
+  image.push(...writeText('page 1/4', border, 337, 205))
+
+
+  state.cosmos.sort((a, b) => a.id - b.id).slice(0, 4).forEach((sO, i) => {
+
+    const apparentRadius = Math.ceil(sO.diameter / sO.distance) / 2;
+
+    const origin = {x: 101 + (67 * i) + apparentRadius % 1, y: 170 + apparentRadius % 1};
+    // const origin = {x: 200, y: 100};
+
+    image.push({color: border, x: 68 + 67 * i, y: 137, w: 66, h: 76});
+    image.push({color: clear, x: 69 + 67 * i, y: 138, w: 64, h: 64});
+    image.push({color: clear, x: 69 + 67 * i, y: 203, w: 64, h: 9});
+    image.push(...writeText(sO.id.toString(), border, 70 + 67 * i, 205))
+
+    for (let x = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); x <= apparentRadius; x++) {
+      for (let y = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); y <= apparentRadius; y++) {
+        // console.log(x, y, x ** 2 + y ** 2 <= apparentRadius ** 2)
+        if (x ** 2 + y ** 2 <= apparentRadius ** 2) {
+          const pixelX = Math.floor(origin.x + x);
+          const pixelY = Math.floor(origin.y + y);
+          console.log(pixelX, pixelY)
+          // if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+            image.push({color: sO.color, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+          // }
+        }
+      };
+    };
+
+  });
 
   return image;
 
