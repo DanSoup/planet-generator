@@ -1,6 +1,3 @@
-// import generatePlanet from './functions/generatePlanet.js';
-// import drawPlanet from './pages/functions/drawPlanet.js';
-// import generateTerrain from './functions/generateTerrain.js';
 import hexColor from './pages/functions/hexColor.js';
 import searchPage from './pages/searchPage.js';
 import sidebarPage from './pages/sidebarPage.js';
@@ -19,9 +16,7 @@ const state = {
   initialSeed: seed,
   planetSeed: seed + 1,
   page: 'search',
-  cosmos: [
-
-  ]
+  cosmos: []
 }
 
 class SpaceObject {
@@ -67,8 +62,6 @@ for (let i = 0; i < 10; i++) {
 }
 
 state.cosmos.forEach(sO => {
-  // console.log(sO.diameter, sO.x, sO.y)
-  // console.log(sO.diameter / sO.distance, sO.x, sO.y)    
 
 })
 

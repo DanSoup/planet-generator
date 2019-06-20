@@ -1,6 +1,8 @@
 import colors from './functions/resources/colors.js';
 import writeText from './functions/writeText.js';
 
+let page = 3;
+
 const searchPage = (cursor, state) => {
 
   const image = [];
@@ -17,11 +19,6 @@ const searchPage = (cursor, state) => {
   // Right Window
   image.push({color: border, x: 266, y: 4, w: 130, h: 130});
   image.push({color: clear, x: 267, y: 5, w: 128, h: 128});
-
-  // Scroll Window
-  // image.push({color: border, x: 68, y: 137, w: 328, h: 84});
-  // image.push({color: clear, x: 69, y: 138, w: 326, h: 76});
-  // image.push({color: clear, x: 69, y: 215, w: 326, h: 5});
 
   // Buttons Top Row
   image.push({color: border, x: 201, y: 4, w: 20, h: 20});
@@ -171,39 +168,40 @@ const searchPage = (cursor, state) => {
   image.push({color: highlight, x: 69, y: 132, w: 128, h: 1});
   image.push({color: highlight, x: 196, y: 5, w: 1, h: 128});
 
-  // Planet windows
-  image.push({color: border, x: 68, y: 137, w: 66, h: 76});
-  image.push({color: clear, x: 69, y: 138, w: 64, h: 64});
-  image.push({color: clear, x: 69, y: 203, w: 64, h: 9});
-  image.push(...writeText('earth', border, 70, 205))
+  // Forward/ Backwards page
 
-  image.push({color: border, x: 135, y: 137, w: 66, h: 76});
-  image.push({color: clear, x: 136, y: 138, w: 64, h: 64});
-  image.push({color: clear, x: 136, y: 203, w: 64, h: 9});
-  image.push(...writeText('mars', border, 137, 205))
+  const leftPageButton = () => {
+
+    let hover = cursor.x > 337 && cursor.x < 337 + 29 && cursor.y > 137 && cursor.y <= 137 + 66; 
+    if (cursor.b === 'down') hover = false;
+    if (hover && cursor.b === 'click') page = Math.max(page - 1, 1);
+
+    image.push({color: hover ? clear : border, x: 337, y: 137, w: 29, h: 66});
+    image.push({color: hover ? border : clear, x: 338, y: 138, w: 27, h: 64});
+    image.push({color: hover ? clear : border, x: 340, y: 140, w: 23, h: 60});
+
+  };
+
+  leftPageButton();
+
+  const rightPageButton = () => {
+
+    let hover = cursor.x > 367 && cursor.x < 367 + 29 && cursor.y > 137 && cursor.y <= 137 + 66; 
+    if (cursor.b === 'down') hover = false;
+    if (hover && cursor.b === 'click') page = Math.min(page + 1, 4);
+
+    image.push({color: hover ? clear : border, x: 367, y: 137, w: 29, h: 66});
+    image.push({color: hover ? border : clear, x: 368, y: 138, w: 27, h: 64});
+    image.push({color: hover ? clear : border, x: 370, y: 140, w: 23, h: 60});
+
+  };
+
+  rightPageButton();
+
+  image.push(...writeText(`page ${page}/4`, border, 337, 205))
 
 
-  image.push({color: border, x: 202, y: 137, w: 66, h: 76});
-  image.push({color: clear, x: 203, y: 138, w: 64, h: 64});
-  image.push({color: clear, x: 203, y: 203, w: 64, h: 9});
-  image.push(...writeText('venus', border, 204, 205))
-
-  image.push({color: border, x: 269, y: 137, w: 66, h: 76});
-  image.push({color: clear, x: 270, y: 138, w: 64, h: 64});
-  image.push({color: clear, x: 270, y: 203, w: 64, h: 9});
-  image.push(...writeText('jupiter', border, 271, 205))
-
-  image.push({color: border, x: 337, y: 137, w: 29, h: 66});
-  image.push({color: clear, x: 338, y: 138, w: 27, h: 64});
-  image.push({color: border, x: 340, y: 140, w: 4, h: 60});
-
-  image.push({color: border, x: 338 + 29, y: 137, w: 29, h: 66});
-  image.push({color: clear, x: 338 + 30, y: 138, w: 27, h: 64});
-
-  image.push(...writeText('page 1/4', border, 337, 205))
-
-
-  state.cosmos.sort((a, b) => a.id - b.id).slice(0, 4).forEach((sO, i) => {
+  state.cosmos.sort((a, b) => a.id - b.id).slice((page - 1) * 4, page * 4).forEach((sO, i) => {
 
     const apparentRadius = Math.ceil(sO.diameter / sO.distance) / 2;
 
@@ -217,14 +215,10 @@ const searchPage = (cursor, state) => {
 
     for (let x = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); x <= apparentRadius; x++) {
       for (let y = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); y <= apparentRadius; y++) {
-        // console.log(x, y, x ** 2 + y ** 2 <= apparentRadius ** 2)
         if (x ** 2 + y ** 2 <= apparentRadius ** 2) {
           const pixelX = Math.floor(origin.x + x);
           const pixelY = Math.floor(origin.y + y);
-          console.log(pixelX, pixelY)
-          // if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
-            image.push({color: sO.color, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
-          // }
+          image.push({color: sO.color, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
         }
       };
     };
