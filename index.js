@@ -2,20 +2,21 @@ import hexColor from './pages/functions/hexColor.js';
 import searchPage from './pages/searchPage.js';
 import sidebarPage from './pages/sidebarPage.js';
 import photoPage from './pages/photoPage.js';
+import atlasPage from './pages/atlasPage.js';
 import xorshift from './pages/functions/xorshift.js';
 
 const mainCanvas = document.getElementById('mainCanvas');
 const fpsDisplay = document.getElementById('fpsDisplay');
 const ctx = mainCanvas.getContext('2d');
 
-const scale = 3;
+const scale = 20;
 let frame = 0;
 let seed = 100;
 
 const state = {
   initialSeed: seed,
   planetSeed: seed + 1,
-  page: 'search',
+  page: 'atlas',
   cosmos: []
 }
 
@@ -74,7 +75,7 @@ const draw = imageData => {
     ctx.fillRect(x * scale, y * scale, w * scale, h * scale)
   })
 
-  const debug = 0;
+  const debug = 1;
 
   ctx.fillStyle = '#FF000080';
   if (debug) {
@@ -115,7 +116,8 @@ const advanceFrame = timestamp => {
 
   imageData.push(...sidebarPage(cursor,  state));
   if (state.page === 'search') imageData.push(...searchPage(cursor, state));
-  if (state.page === 'photo') imageData.push(...photoPage(cursor));
+  if (state.page === 'photo') imageData.push(...photoPage(cursor, state));
+  if (state.page === 'atlas') imageData.push(...atlasPage(cursor, state));
 
   draw(imageData)
   
