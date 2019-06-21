@@ -139,15 +139,15 @@ const searchPage = (cursor, state) => {
 
   state.cosmos.sort((a, b) => b.distance - a.distance).forEach(sO => {
 
-    const apparentRadius = Math.ceil(sO.diameter / sO.distance) / 2;
+    const apparentRadius = Math.floor(sO.diameter / sO.distance) / 2;
     // const apparentRadius = sO.radius;
 
     const origin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
 
     // if (apparentRadius >= 0.5 && sO.distance === 4) {
     if (apparentRadius >= 0.5) {
-      for (let x = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); x <= apparentRadius; x++) {
-        for (let y = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); y <= apparentRadius; y++) {
+      for (let x = -0.5 - apparentRadius; x <= apparentRadius; x++) {
+        for (let y = -0.5 - apparentRadius; y <= apparentRadius; y++) {
           // console.log(x, y, x ** 2 + y ** 2 <= apparentRadius ** 2)
           if (x ** 2 + y ** 2 <= apparentRadius ** 2) {
             const pixelX = Math.floor(origin.x + x);
@@ -203,7 +203,7 @@ const searchPage = (cursor, state) => {
 
   state.cosmos.sort((a, b) => a.id - b.id).slice((page - 1) * 4, page * 4).forEach((sO, i) => {
 
-    const apparentRadius = Math.ceil(sO.diameter / sO.distance) / 2;
+    const apparentRadius = Math.floor(sO.diameter / sO.distance) / 2;
 
     const origin = {x: 101 + (67 * i) + apparentRadius % 1, y: 170 + apparentRadius % 1};
     // const origin = {x: 200, y: 100};
@@ -213,8 +213,8 @@ const searchPage = (cursor, state) => {
     image.push({color: clear, x: 69 + 67 * i, y: 203, w: 64, h: 9});
     image.push(...writeText(sO.id.toString(), border, 70 + 67 * i, 205))
 
-    for (let x = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); x <= apparentRadius; x++) {
-      for (let y = 0 - apparentRadius + ((apparentRadius + 0.5) % 1); y <= apparentRadius; y++) {
+    for (let x = -0.5 - apparentRadius; x <= apparentRadius; x++) {
+      for (let y = -0.5 - apparentRadius; y <= apparentRadius; y++) {
         if (x ** 2 + y ** 2 <= apparentRadius ** 2) {
           const pixelX = Math.floor(origin.x + x);
           const pixelY = Math.floor(origin.y + y);
