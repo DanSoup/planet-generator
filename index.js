@@ -9,15 +9,25 @@ const mainCanvas = document.getElementById('mainCanvas');
 const fpsDisplay = document.getElementById('fpsDisplay');
 const ctx = mainCanvas.getContext('2d');
 
-const scale = 20;
+const scale = 4;
 let frame = 0;
 let seed = 100;
 
-const state = {
+window.state = {
   initialSeed: seed,
   planetSeed: seed + 1,
-  page: 'atlas',
-  cosmos: []
+  page: 'photo',
+  cosmos: [],
+  chosenObject: 5,
+  cameras: [
+    {
+      id: 1,
+      resolution: 8,
+      light: 2,
+      zoom: 1,
+      color: 0
+    }
+  ]
 }
 
 class SpaceObject {
@@ -75,7 +85,7 @@ const draw = imageData => {
     ctx.fillRect(x * scale, y * scale, w * scale, h * scale)
   })
 
-  const debug = 1;
+  const debug = 0;
 
   ctx.fillStyle = '#FF000080';
   if (debug) {
@@ -116,13 +126,13 @@ const advanceFrame = timestamp => {
 
   imageData.push(...sidebarPage(cursor,  state));
   if (state.page === 'search') imageData.push(...searchPage(cursor, state));
-  if (state.page === 'photo') imageData.push(...photoPage(cursor, state));
+  if (state.page === 'photo') imageData.push(...photoPage(cursor));
   if (state.page === 'atlas') imageData.push(...atlasPage(cursor, state));
 
   draw(imageData)
   
   if (cursor.b === 'click') cursor.b = 'up';
-  setTimeout(() => window.requestAnimationFrame(advanceFrame), 1000 / 1);
+  setTimeout(() => window.requestAnimationFrame(advanceFrame), 2000 / 1);
 };
 
 window.requestAnimationFrame(advanceFrame);
