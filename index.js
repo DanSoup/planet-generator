@@ -4,14 +4,15 @@ import sidebarPage from './pages/sidebarPage.js';
 import photoPage from './pages/photoPage.js';
 import atlasPage from './pages/atlasPage.js';
 import xorshift from './pages/functions/xorshift.js';
+import writeText from './pages/functions/writeText.js';
 
 const mainCanvas = document.getElementById('mainCanvas');
-const fpsDisplay = document.getElementById('fpsDisplay');
 const ctx = mainCanvas.getContext('2d');
 
 const scale = 4;
-let frame = 0;
+let lastFrame = 0;
 let seed = 100;
+const fpsArray = [];
 
 window.state = {
   initialSeed: seed,
@@ -22,9 +23,9 @@ window.state = {
   cameras: [
     {
       id: 1,
-      resolution: 8,
+      resolution: 32,
       light: 2,
-      zoom: 1,
+      zoom: 8,
       color: 0
     }
   ]
@@ -129,10 +130,24 @@ const advanceFrame = timestamp => {
   if (state.page === 'photo') imageData.push(...photoPage(cursor));
   if (state.page === 'atlas') imageData.push(...atlasPage(cursor, state));
 
-  draw(imageData)
+  const fps = Math.round(100000 / (Date.now() - lastFrame)) / 100;
+  lastFrame = Date.now();
+
+  fpsArray.push(fps)
+
+  if (fpsArray.length > 60) fpsArray.shift();
+
+  const averageFps = fpsArray.reduce((acc, ele) => {
+    return acc + ele / fpsArray.length;
+  }, 0);
+
+  imageData.push(...writeText(averageFps.toString(10), {r: 1, g: 1, b: 1, a: 1}, 4, 216))
+
+  draw(imageData);
   
   if (cursor.b === 'click') cursor.b = 'up';
-  setTimeout(() => window.requestAnimationFrame(advanceFrame), 2000 / 1);
+  setTimeout(() => window.requestAnimationFrame(advanceFrame), 0);
+  // setTimeout(() => advanceFrame(), 1000 / 100);
 };
 
 window.requestAnimationFrame(advanceFrame);

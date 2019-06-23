@@ -31,7 +31,6 @@ const atlasPage = (cursor, state) => {
     // Planet window
     image.push({color: clear, x: 69, y: 5 + oIndex * 11, w: 10, h: 10});
     image.push({color: clear, x: 80, y: 5 + oIndex * 11, w: 182, h: 10});
-    console.log((sO.diameter / sO.distance) / 2)
     image.push(...writeText(`${apparentRadius} - ${((sO.diameter / sO.distance) / 2).toString()}`, border, 81, 6 + oIndex * 11))
 
     // const apparentRadius = sO.radius;
@@ -42,7 +41,6 @@ const atlasPage = (cursor, state) => {
     if (apparentRadius >= 0.5) {
       for (let x = -0.5 - apparentRadius; x <= apparentRadius; x++) {
         for (let y = -0.5 - apparentRadius; y <= apparentRadius; y++) {
-          // console.log(x, y, x ** 2 + y ** 2 <= apparentRadius ** 2)
           if (x ** 2 + y ** 2 <= apparentRadius ** 2) {
             const pixelX = Math.floor(origin.x + x);
             const pixelY = Math.floor(origin.y + y);
