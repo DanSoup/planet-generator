@@ -11,7 +11,18 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, size = 128) => {
     rawImage[y] = [];
     for (let x = 0; x < size; x++) {
       if ((x - origin + 0.5) ** 2 + (y - origin + 0.5) ** 2 < aRadius ** 2) {
-        rawImage[y][x] = planet.color
+        const midX = x - 64;
+        const midY = y - 64;
+        const midZ = Math.sqrt(aRadius ** 2 - ((midX) ** 2 + (midY) ** 2));
+        const theta = Math.PI * 0.75;
+        const newX = midX + 64;
+        const newY = Math.cos(theta) * midY - Math.sin(theta) * midZ + 64;
+        const newZ = Math.sin(theta) * midY + Math.cos(theta) * midZ + 64;
+        const newColor = {...planet.color}
+        newColor.r = newColor.r * (newZ / size);
+        newColor.g = newColor.g * (newX / size) * (newZ / size);
+        newColor.b = newColor.b * (newZ / size);
+        rawImage[y][x] = newColor
       }
     };
   };
