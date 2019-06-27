@@ -1,7 +1,10 @@
-const generatePlanet = (planet, camera, startX = 0, startY = 0, size = 128) => {
+const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128) => {
 
+  const size = Math.floor(maxSize / camera.resolution) * camera.resolution;
+  const buffer = Math.floor((maxSize - size) / 2);
   const pixelSize = size / camera.resolution;
-  const aRadius = 0.5 * camera.zoom * (planet.diameter / planet.distance);
+  const apparentZoom = size / maxSize;
+  const aRadius = Math.min(0.5 * camera.zoom * apparentZoom * (planet.diameter / planet.distance), size * 0.45);
 
   const image = [];
   const rawImage = [];
@@ -10,14 +13,14 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, size = 128) => {
   for (let y = 0; y < size; y++) {
     rawImage[y] = [];
     for (let x = 0; x < size; x++) {
-      if ((x - origin + 0.5) ** 2 + (y - origin + 0.5) ** 2 < aRadius ** 2) {
-        const midX = x - 64;
-        const midY = y - 64;
+      if ((x - origin) ** 2 + (y - origin) ** 2 < aRadius ** 2) {
+        const midX = x - origin;
+        const midY = y - origin;
         const midZ = Math.sqrt(aRadius ** 2 - ((midX) ** 2 + (midY) ** 2));
         const theta = Math.PI * 0.75;
-        const newX = midX + 64;
-        const newY = Math.cos(theta) * midY - Math.sin(theta) * midZ + 64;
-        const newZ = Math.sin(theta) * midY + Math.cos(theta) * midZ + 64;
+        const newX = midX + origin;
+        const newY = Math.cos(theta) * midY - Math.sin(theta) * midZ + origin;
+        const newZ = Math.sin(theta) * midY + Math.cos(theta) * midZ + origin;
         const newColor = {...planet.color}
         newColor.r = newColor.r * (newZ / size);
         newColor.g = newColor.g * (newX / size) * (newZ / size);
@@ -52,7 +55,7 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, size = 128) => {
       mostActivePixels = Math.max(mostActivePixels, activePixels);
       const color = {r: fullColor.r, g: fullColor.g, b: fullColor.b, a: fullColor.a};
 
-      image.push({color, x: startX + (x * pixelSize), y: startY + (y * pixelSize), w: pixelSize, h: pixelSize, activePixels});
+      image.push({color, x: buffer + startX + (x * pixelSize), y: buffer + startY + (y * pixelSize), w: pixelSize, h: pixelSize, activePixels});
     };
   };
 
