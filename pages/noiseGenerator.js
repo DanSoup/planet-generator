@@ -12,15 +12,20 @@ const ctx = canvas.getContext('2d');
 ctx.fillStyle = '#000000FF';
 // ctx.fillRect(1, 1, 1, 1);
 
-let image = equalize(generateSpiral(256, 256));
-// let image = waveGenerator(256, 256);
+let time = 0
 
-console.log(image)
+setInterval(() => {
 
-image.forEach((row, y) => {
-  row.forEach((cell, x) => {
-    const color = Math.floor(cell * 255).toString(16).padStart(2, '0');
-    ctx.fillStyle = `#${color}${color}${color}ff`;
-    ctx.fillRect(x, y, 1, 1);
+  let image = equalize(waveGenerator(128, 128, time));
+
+  image.forEach((row, y) => {
+    row.forEach((cell, x) => {
+      const color = Math.floor(cell * 255).toString(16).padStart(2, '0');
+      ctx.fillStyle = `#${color}${color}${color}ff`;
+      ctx.fillRect(x, y, 1, 1);
+    });
   });
-});
+
+  time++;
+ 
+}, 0)

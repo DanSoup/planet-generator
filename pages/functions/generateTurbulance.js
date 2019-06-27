@@ -2,9 +2,9 @@ import generateNoise from './generateNoise.js';
 import lowerRes from './lowerRes.js';
 import blur from './blur.js';
 
-const generateTurbulance = (width = 256, height = 256, variance = [0, 0, 0], turbLevels) => {
+const generateTurbulance = (width = 256, height = 256, variance = [0, 0, 0], turbLevels, time) => {
 
-  const image = generateNoise(width, height, variance);
+  let image = generateNoise(width, height, variance);
 
   const turbulantImages = [image]
 
@@ -21,7 +21,7 @@ const generateTurbulance = (width = 256, height = 256, variance = [0, 0, 0], tur
       turbulantImages.forEach((turbImage, i) => {
         color += turbImage[y][x] / (2 ** (turbLevels + 1 - (i)))
       })
-      finalTurbulantImage[y][x] = color;
+      finalTurbulantImage[y][x] = color * (((Math.sin(time + y / 30 - x / 30) + 0.6) / 2) + 0.2);
     } 
   }
 
