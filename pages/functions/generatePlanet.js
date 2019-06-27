@@ -17,14 +17,14 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128) =
         const midX = x - origin;
         const midY = y - origin;
         const midZ = Math.sqrt(aRadius ** 2 - ((midX) ** 2 + (midY) ** 2));
-        const theta = Math.PI * 0.75;
+        const theta = Math.PI * 0.25;
         const newX = midX + origin;
         const newY = Math.cos(theta) * midY - Math.sin(theta) * midZ + origin;
         const newZ = Math.sin(theta) * midY + Math.cos(theta) * midZ + origin;
         const newColor = {...planet.color}
-        newColor.r = newColor.r * (newZ / size);
-        newColor.g = newColor.g * (newX / size) * (newZ / size);
-        newColor.b = newColor.b * (newZ / size);
+        newColor.r = newColor.r * ((0.8 * newZ / size) + 0.2);
+        newColor.g = newColor.g * ((0.8 * newZ / size) + 0.2);
+        newColor.b = newColor.b * ((0.8 * newZ / size) + 0.2);
         rawImage[y][x] = newColor
       }
     };
@@ -66,7 +66,27 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128) =
       b: imageData.color.b / (mostActivePixels),
       a: imageData.color.a / (mostActivePixels)
     }
+    const noTransparency = {
+      r: imageData.color.r * imageData.color.a,
+      g: imageData.color.g * imageData.color.a,
+      b: imageData.color.b * imageData.color.a,
+      a: 1
+    }
+
+    imageData.color = noTransparency;
+
     // if (imageData.activePixels) console.log(imageData.color)
+  });
+
+  image.forEach(imageData => {
+    const {r, g, b} = imageData.color;
+    imageData.color = {
+      r: Math.floor(4 * Math.max(r, g, b)) / 4,
+      g: Math.floor(4 * Math.max(r, g, b)) / 4,
+      b: Math.floor(4 * Math.max(r, g, b)) / 4,
+      a: 1
+    }
+
   });
 
 

@@ -11,7 +11,7 @@ const ctx = mainCanvas.getContext('2d');
 
 const scale = 4;
 let lastFrame = 0;
-let seed = 100;
+let seed = 104;
 const fpsArray = [];
 
 window.state = {
@@ -23,7 +23,7 @@ window.state = {
   cameras: [
     {
       id: 1,
-      resolution: 128,
+      resolution: 32,
       light: 2,
       zoom: 1000,
       color: 0
