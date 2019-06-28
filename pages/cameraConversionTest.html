@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Camera Conversion Test</title>
+</head>
+<style>
+
+  canvas {
+    border: solid 1px black;
+  }
+
+</style>
+<body>
+  <canvas id="rawCanvas" height="256" width="256"></canvas>
+  <canvas id="modCanvas" height="256" width="256"></canvas>
+  <p></p>
+</body>
+<script>
+
+  const rawCanvas = document.getElementById('rawCanvas');
+  const rCtx = rawCanvas.getContext('2d');
+
+  const modCanvas = document.getElementById('modCanvas');
+  const mCtx = modCanvas.getContext('2d');
+
+  let z = 255;
+
+  const conversion = (r, g, b) => {
+    let mR = r;
+    let mG = r ** 2 < (g * b) && (g * b) < 10100 ? 255 : 0;
+    let mB = r ** 2 < (g * b) && (g * b) < 10100 ? 255 : 0;
+    mR = mR.toString(16).padStart(2, '0');
+    mG = mG.toString(16).padStart(2, '0');
+    mB = mB.toString(16).padStart(2, '0');
+    return {mR, mG, mB};
+  };
+
+  const draw = () => {
+    for (let x = 0; x < 256; x++) {
+      for (let y = 0; y < 256; y++) {
+        const rR = x.toString(16).padStart(2, '0');
+        const rG = y.toString(16).padStart(2, '0');
+        const rB = z.toString(16).padStart(2, '0');
+        rCtx.fillStyle = `#${rR}${rG}${rB}FF`;
+        rCtx.fillRect(x, y, 1, 1);
+
+        const {mR, mG, mB} = conversion(x, y, z);
+        mCtx.fillStyle = `#${mR}${mG}${mB}FF`;
+        mCtx.fillRect(x, y, 1, 1);
+      }  
+    }
+    z = (z + 1) % 256
+    document.getElementsByTagName('p')[0].innerText = z
+    setTimeout(draw, 0)
+  }
+  
+  draw();
+
+</script>
+</html>

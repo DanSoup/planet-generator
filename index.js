@@ -23,15 +23,15 @@ window.state = {
   cameras: [
     {
       id: 1,
-      resolution: 32,
+      resolution: 128,
       light: 2,
-      zoom: 1000,
+      zoom: 1,
       color: 0
     }
   ]
 }
 
-// setInterval(() => window.state.cameras[0].resolution++, 100)
+// setInterval(() => window.state.cameras[0].zoom *= 1.05, 100)
 
 class SpaceObject {
   constructor () {
