@@ -66,16 +66,21 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
       const color = {r: fullColor.r, g: fullColor.g, b: fullColor.b, a: fullColor.a};
 
       image.push({color, x: startX + (x * new_pixelSize), y: startY + (y * new_pixelSize), w: new_pixelSize, h: new_pixelSize, activePixels});
+      
     };
   };
 
   image.forEach(imageData => {
+
+    
+    
     imageData.color = {
       r: imageData.color.r / (mostActivePixels),
       g: imageData.color.g / (mostActivePixels),
       b: imageData.color.b / (mostActivePixels),
       a: imageData.color.a / (mostActivePixels)
     }
+
     const noTransparency = {
       r: imageData.color.r * imageData.color.a,
       g: imageData.color.g * imageData.color.a,
@@ -84,6 +89,13 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
     }
 
     imageData.color = noTransparency;
+
+    if (Math.random() * 60000 > (Date.now() - state.photos[0].time)) {
+      imageData.color.a = 1
+      imageData.color.r = 1
+      imageData.color.g = 1
+      imageData.color.b = 1
+    }
 
     // if (imageData.activePixels) console.log(imageData.color)
   });

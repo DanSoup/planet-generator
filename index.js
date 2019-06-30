@@ -28,6 +28,12 @@ window.state = {
       zoom: 10,
       color: 0
     }
+  ],
+  photos: [
+    {
+      id: 1,
+      time: Date.now()
+    }
   ]
 }
 
@@ -148,7 +154,7 @@ const advanceFrame = timestamp => {
   draw(imageData);
   
   if (cursor.b === 'click') cursor.b = 'up';
-  setTimeout(() => window.requestAnimationFrame(advanceFrame), 10000);
+  setTimeout(() => window.requestAnimationFrame(advanceFrame), 100);
   // setTimeout(() => advanceFrame(), 1000 / 100);
 };
 
