@@ -25,7 +25,7 @@ window.state = {
       id: 1,
       resolution: 128,
       light: 2,
-      zoom: 1,
+      zoom: 1000,
       color: 0
     }
   ]

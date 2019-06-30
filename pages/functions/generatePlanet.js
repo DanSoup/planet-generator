@@ -1,11 +1,15 @@
-const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128) => {
+const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, zoom = 0) => {
 
-  const size = Math.floor(maxSize / camera.resolution) * camera.resolution;
+  const maximumResolution = Math.max(camera.resolution * camera.zoom, 128);
+
+
+
+  const size = Math.min(Math.floor(maxSize / camera.resolution) * camera.resolution, 128);
   const buffer = Math.floor((maxSize - size) / 2);
   const pixelSize = size / camera.resolution;
   const apparentZoom = size / maxSize;
-  const aRadius = Math.min(0.5 * camera.zoom * apparentZoom * (planet.diameter / planet.distance), size * 0.45);
-
+  const aRadius = Math.min(0.5 * camera.zoom * apparentZoom * (planet.diameter / planet.distance), size * (0.45 * 2 ** zoom));
+  
   const image = [];
   const rawImage = [];
   const origin = size / 2;
@@ -32,8 +36,8 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128) =
 
   let mostActivePixels = 0;
 
-  for (let y = 0; y < camera.resolution; y++) {
-    for (let x = 0; x < camera.resolution; x++) {
+  for (let y = 0; y < Math.min(camera.resolution, 128); y++) {
+    for (let x = 0; x < Math.min(camera.resolution, 128); x++) {
 
       const fullColor = {r: 0, g: 0, b: 0, a: 0};
       let activePixels = 0;
