@@ -138,17 +138,17 @@ const photoPage = () => {
   image.push({color: border, x: 254, y: 55, w: 3, h: 3});
   
   const zoom = 3;
-  const xZoomPos = 20;
-  const yZoomPos = 20;
+  const xZoomPos = 0;
+  const yZoomPos = 0;
 
   image.push(...generatePlanet(planet, camera, 69, 5, 128))
-  image.push(...generatePlanet(planet, camera, 267, 5, 128, zoom))
+  image.push(...generatePlanet(planet, camera, 267, 5, 128, zoom, xZoomPos, yZoomPos))
   
   // Left Window Target
-  image.push({color: highlight, x: 69 + xZoomPos, y: 5 + yZoomPos, w: 128 / (2 ** zoom), h: 1});
-  image.push({color: highlight, x: 69 + xZoomPos, y: 5 + yZoomPos, w: 1, h: 128 / (2 ** zoom)});
-  image.push({color: highlight, x: 69 + xZoomPos, y: 132 - (128 - 2 ** (7 - zoom)) + yZoomPos, w: 128 / (2 ** zoom), h: 1});
-  image.push({color: highlight, x: 196 - (128 - 2 ** (7 - zoom)) + xZoomPos, y: 5 + yZoomPos, w: 1, h: 128 / (2 ** zoom)});
+  image.push({color: highlight, x: 69 + 64 - (2 ** (6 - zoom)) + xZoomPos, y: 5 + 64 - (2 ** (6 - zoom)) + yZoomPos, w: 128 / (2 ** zoom), h: 1});
+  image.push({color: highlight, x: 69 + 64 - (2 ** (6 - zoom)) + xZoomPos, y: 5 + 64 - (2 ** (6 - zoom)) + yZoomPos, w: 1, h: 128 / (2 ** zoom)});
+  image.push({color: highlight, x: 69 + 64 - (2 ** (6 - zoom)) + xZoomPos, y: 132 + 64 - (2 ** (6 - zoom)) - (128 - 2 ** (7 - zoom)) + yZoomPos, w: 128 / (2 ** zoom), h: 1});
+  image.push({color: highlight, x: 196 - (128 - 2 ** (7 - zoom)) + xZoomPos + 64 - (2 ** (6 - zoom)), y: 5 + 64 - (2 ** (6 - zoom)) + yZoomPos, w: 1, h: 128 / (2 ** zoom)});
 
   return image;
 };

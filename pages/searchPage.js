@@ -211,7 +211,7 @@ const searchPage = (cursor, state) => {
     image.push({color: border, x: 68 + 67 * i, y: 137, w: 66, h: 76});
     image.push({color: clear, x: 69 + 67 * i, y: 138, w: 64, h: 64});
     image.push({color: clear, x: 69 + 67 * i, y: 203, w: 64, h: 9});
-    image.push(...writeText(sO.id.toString(), border, 70 + 67 * i, 205))
+    image.push(...writeText(sO.id.toString(), border, 70 + 67 * i, 205));
 
     for (let x = -0.5 - apparentRadius; x <= apparentRadius; x++) {
       for (let y = -0.5 - apparentRadius; y <= apparentRadius; y++) {
