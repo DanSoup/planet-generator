@@ -2,10 +2,10 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
 
   const maximumResolution = 128 * Math.ceil(camera.resolution * camera.zoom / 128);
 
-  console.log(maximumResolution)
+  // console.log(maximumResolution)
 
   const new_pixelSize = Math.min(Math.max(Math.floor(128 / (maximumResolution / 2 ** zoom)), 1), 128);
-  console.log(zoom, new_pixelSize)
+  // console.log(zoom, new_pixelSize)
 
   const aRadius = Math.min((camera.resolution * camera.zoom / 128) * (planet.diameter / planet.distance) * 2 ** zoom, 50 * 2 ** zoom);
   
