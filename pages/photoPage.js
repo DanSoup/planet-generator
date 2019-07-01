@@ -10,6 +10,10 @@ const photoPage = () => {
   const image = [];
   const {background, border, sidebar, clear, highlight} = colors.default;
 
+  const zoom = 3;
+  const xZoomPos = 0;
+  const yZoomPos = 0;
+
   // Background
   image.push({color: border, x: 65, y: 0, w: 335, h: 225});
   image.push({color: background, x: 65, y: 1, w: 334, h: 223});
@@ -136,12 +140,8 @@ const photoPage = () => {
   image.push({color: border, x: 250, y: 58, w: 2, h: 1});
   image.push({color: border, x: 252, y: 56, w: 1, h: 2});
   image.push({color: border, x: 254, y: 55, w: 3, h: 3});
-  
-  const zoom = 3;
-  const xZoomPos = -50;
-  const yZoomPos = -50;
 
-  // image.push(...generatePlanet(planet, camera, 69, 5, 128))
+  image.push(...generatePlanet(planet, camera, 69, 5, 128))
   image.push(...generatePlanet(planet, camera, 267, 5, 128, zoom, xZoomPos, yZoomPos))
   
   // Left Window Target

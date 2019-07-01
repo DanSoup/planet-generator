@@ -18,31 +18,36 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
     for (let x = 0; x < 128; x++) {
       const rX = x - 64 + (zoomX * 2 ** zoom);
       const rY = y - 64 + (zoomY * 2 ** zoom);
+      // const rX = x / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomX);
+      // const rY = y / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomY);
 
       const pixelNo = (x, y) => {
         return (Math.floor(x / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomX))) + Math.floor((y / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomY))) * 128;
       }
 
-      if (pixelNo(x, y) * 10 > (Date.now() - state.photos[0].time)) {
-        rawImage[y][x] = {r: 1, g: 1, b: 1, a: 1}
-      } else if ((rX) ** 2 + (rY) ** 2 < aRadius ** 2) {
+      // if (pixelNo(x, y) * 1 > (Date.now() - state.photos[0].time)) {
+        // rawImage[y][x] = {r: Math.random(), g: 0, b: 0, a: 1, ignore: true}
+      // } else if ((rX) ** 2 + (rY) ** 2 < aRadius ** 2) {
+      if ((rX) ** 2 + (rY) ** 2 < aRadius ** 2) {
         const midX = rX;
         const midY = rY;
         const midZ = Math.sqrt(aRadius ** 2 - ((midX) ** 2 + (midY) ** 2));
-        const theta = Math.PI * 0.25;
-        const newX = midX + origin - (zoomX * 2 ** zoom);
+        const theta = Math.PI * 0.5;
+        const newX = (midX / 2 ** zoom) + 64 - (zoomX * 2 ** zoom);
         // const newY = Math.cos(theta) * midY - Math.sin(theta) * midZ + origin;
         // const newZ = Math.sin(theta) * midY + Math.cos(theta) * midZ + origin;
-        const newY = Math.cos(theta) * midY - Math.sin(theta) * midZ + 64 - (zoomY * 2 ** zoom);
-        const newZ = Math.sin(theta) * midY + Math.cos(theta) * midZ + 64;
+        const newY = ((Math.cos(theta) * midY - Math.sin(theta) * midZ) / 2 ** zoom) + 64 - (zoomY * 2 ** zoom);
+        const newZ = ((Math.sin(theta) * midY + Math.cos(theta) * midZ) / 2 ** zoom) + 64;
 
         // Surface image is generated here.
         const newColor = {...planet.color}
-        newColor.r = newColor.r * ((0.8 * newX / 128) + 0.2);
-        newColor.g = newColor.g * ((0.8 * newX / 128) + 0.2);
-        newColor.b = newColor.b * ((0.8 * newX / 128) + 0.2);
+        newColor.r = newColor.r * ((0.8 * newZ / 128) + 0.2);
+        newColor.g = newColor.g * ((0.8 * newZ / 128) + 0.2);
+        newColor.b = newColor.b * ((0.8 * newZ / 128) + 0.2);
 
         rawImage[y][x] = newColor
+      } else {
+        // rawImage[y][x] = {r: 0, g: 0, b: 0, a: 0}
       }
     };
   };
@@ -72,20 +77,34 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
       mostActivePixels = Math.max(mostActivePixels, activePixels);
       const color = {r: fullColor.r, g: fullColor.g, b: fullColor.b, a: fullColor.a};
 
+      const pixelNo = (sX, sY) => {
+        const x = sX * new_pixelSize
+        const y = sY * new_pixelSize
+        return (Math.floor(x / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomX))) + Math.floor((y / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomY))) * 128;
+      }
+
+      if (pixelNo(x, y) * 1 > (Date.now() - state.photos[0].time)) {
+        color.r = Math.random();
+        color.b = Math.random();
+        color.g = Math.random();
+        color.a = 1;
+        color.noise = true;
+      };
+      
       image.push({color, x: startX + (x * new_pixelSize), y: startY + (y * new_pixelSize), w: new_pixelSize, h: new_pixelSize, activePixels});
       
     };
   };
 
   image.forEach(imageData => {
-
     
-    
-    imageData.color = {
-      r: imageData.color.r / (mostActivePixels),
-      g: imageData.color.g / (mostActivePixels),
-      b: imageData.color.b / (mostActivePixels),
-      a: imageData.color.a / (mostActivePixels)
+    if (!imageData.color.noise) {
+      imageData.color = {
+        r: imageData.color.r / (mostActivePixels),
+        g: imageData.color.g / (mostActivePixels),
+        b: imageData.color.b / (mostActivePixels),
+        a: imageData.color.a / (mostActivePixels)
+      }
     }
 
     const noTransparency = {

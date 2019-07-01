@@ -9,9 +9,9 @@ import writeText from './pages/functions/writeText.js';
 const mainCanvas = document.getElementById('mainCanvas');
 const ctx = mainCanvas.getContext('2d');
 
-const scale = 3;
+const scale = 4;
 let lastFrame = 0;
-let seed = 104;
+let seed = 105;
 const fpsArray = [];
 
 window.state = {
@@ -23,9 +23,9 @@ window.state = {
   cameras: [
     {
       id: 1,
-      resolution: 17,
+      resolution: 16,
       light: 2,
-      zoom: 10,
+      zoom: 1,
       color: 0
     }
   ],
@@ -154,7 +154,7 @@ const advanceFrame = timestamp => {
   draw(imageData);
   
   if (cursor.b === 'click') cursor.b = 'up';
-  setTimeout(() => window.requestAnimationFrame(advanceFrame), 100);
+  setTimeout(() => window.requestAnimationFrame(advanceFrame), 0);
   // setTimeout(() => advanceFrame(), 1000 / 100);
 };
 
