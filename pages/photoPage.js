@@ -10,7 +10,7 @@ const photoPage = () => {
   const image = [];
   const {background, border, sidebar, clear, highlight} = colors.default;
 
-  const zoom = 3;
+  const zoom = 2;
   const xZoomPos = 0;
   const yZoomPos = 0;
 
