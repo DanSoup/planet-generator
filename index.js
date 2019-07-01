@@ -9,7 +9,7 @@ import writeText from './pages/functions/writeText.js';
 const mainCanvas = document.getElementById('mainCanvas');
 const ctx = mainCanvas.getContext('2d');
 
-const scale = 4;
+const scale = 3;
 let lastFrame = 0;
 let seed = 104;
 const fpsArray = [];

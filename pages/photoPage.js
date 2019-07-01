@@ -138,10 +138,10 @@ const photoPage = () => {
   image.push({color: border, x: 254, y: 55, w: 3, h: 3});
   
   const zoom = 3;
-  const xZoomPos = 0;
-  const yZoomPos = 0;
+  const xZoomPos = -50;
+  const yZoomPos = -50;
 
-  image.push(...generatePlanet(planet, camera, 69, 5, 128))
+  // image.push(...generatePlanet(planet, camera, 69, 5, 128))
   image.push(...generatePlanet(planet, camera, 267, 5, 128, zoom, xZoomPos, yZoomPos))
   
   // Left Window Target

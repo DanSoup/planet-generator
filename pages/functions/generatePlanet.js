@@ -18,7 +18,14 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
     for (let x = 0; x < 128; x++) {
       const rX = x - 64 + (zoomX * 2 ** zoom);
       const rY = y - 64 + (zoomY * 2 ** zoom);
-      if ((rX) ** 2 + (rY) ** 2 < aRadius ** 2) {
+
+      const pixelNo = (x, y) => {
+        return (Math.floor(x / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomX))) + Math.floor((y / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomY))) * 128;
+      }
+
+      if (pixelNo(x, y) * 10 > (Date.now() - state.photos[0].time)) {
+        rawImage[y][x] = {r: 1, g: 1, b: 1, a: 1}
+      } else if ((rX) ** 2 + (rY) ** 2 < aRadius ** 2) {
         const midX = rX;
         const midY = rY;
         const midZ = Math.sqrt(aRadius ** 2 - ((midX) ** 2 + (midY) ** 2));
@@ -90,12 +97,12 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
 
     imageData.color = noTransparency;
 
-    if (Math.random() * 60000 > (Date.now() - state.photos[0].time)) {
-      imageData.color.a = 1
-      imageData.color.r = 1
-      imageData.color.g = 1
-      imageData.color.b = 1
-    }
+    // if (Math.random() * 60000 > (Date.now() - state.photos[0].time)) {
+    //   imageData.color.a = 1
+    //   imageData.color.r = 1
+    //   imageData.color.g = 1
+    //   imageData.color.b = 1
+    // }
 
     // if (imageData.activePixels) console.log(imageData.color)
   });
