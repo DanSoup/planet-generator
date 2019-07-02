@@ -1,3 +1,5 @@
+import xorshift from './xorshift.js';
+
 const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, zoom = 0, zoomX = 0, zoomY = 0) => {
 
   const maximumResolution = 128 * Math.ceil(camera.resolution * camera.zoom / 128);
@@ -78,13 +80,18 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
       const color = {r: fullColor.r, g: fullColor.g, b: fullColor.b, a: fullColor.a};
 
       const pixelNo = (sX, sY) => {
-        const x = sX * new_pixelSize
-        const y = sY * new_pixelSize
-        // return (Math.floor(x / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomX))) + Math.floor((y / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomY)));
-        return 90 - Math.sqrt(((Math.floor(x / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomX))) - 64) ** 2 + (Math.floor((y / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomY))) - 64) ** 2);
+        let x = sX * new_pixelSize;
+        let y = sY * new_pixelSize;
+        x = (((x / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomX))));
+        y = (((y / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomY))));
+        // const sinX = Math.sin(x / 128);
+        // const sinY = Math.sin(y);
+
+        // return (Math.sin(x / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomX))) + 128 * Math.floor((y / 2 ** zoom + ((128 - (2 ** (7 - zoom))) / 2 + zoomY)));
+        return (x * 23 + x * y * 17 + y ** 2) % 128 * (y * 23 + x ** 2) % 128 * 128;
       }
 
-      if (pixelNo(x, y) * 1000 > (Date.now() - state.photos[0].time)) {
+      if (pixelNo(x, y) * 10 > (Date.now() - state.photos[0].time)) {
         color.r = Math.random();
         color.b = Math.random();
         color.g = Math.random();
@@ -127,16 +134,16 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
     // if (imageData.activePixels) console.log(imageData.color)
   });
 
-  image.forEach(imageData => {
-    const {r, g, b} = imageData.color;
-    imageData.color = {
-      r: Math.floor(8 * Math.max(r, g, b)) / (8 - 1),
-      g: Math.floor(8 * Math.max(r, g, b)) / (8 - 1),
-      b: Math.floor(8 * Math.max(r, g, b)) / (8 - 1),
-      a: 1
-    }
+  // image.forEach(imageData => {
+  //   const {r, g, b} = imageData.color;
+  //   imageData.color = {
+  //     r: Math.floor(8 * Math.max(r, g, b)) / (8 - 1),
+  //     g: Math.floor(8 * Math.max(r, g, b)) / (8 - 1),
+  //     b: Math.floor(8 * Math.max(r, g, b)) / (8 - 1),
+  //     a: 1
+  //   }
 
-  });
+  // });
 
 
   return image;

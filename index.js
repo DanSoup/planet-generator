@@ -11,7 +11,7 @@ const ctx = mainCanvas.getContext('2d');
 
 const scale = 4;
 let lastFrame = 0;
-let seed = 105;
+let seed = 107;
 const fpsArray = [];
 
 window.state = {
