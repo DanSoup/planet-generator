@@ -11,7 +11,7 @@ const ctx = mainCanvas.getContext('2d');
 
 const scale = 3;
 let lastFrame = 0;
-let seed = 107;
+let seed = 900;
 const fpsArray = [];
 
 window.state = {
@@ -40,13 +40,16 @@ window.state = {
 // setInterval(() => window.state.cameras[0].zoom *= 1.05, 100)
 
 class SpaceObject {
-  constructor () {
+  constructor (depthPlane) {
     this.id = state.cosmos.length + 1;
     this.seed = state.planetSeed;
+    this.depthPlane = depthPlane
   };
   get diameter () {
-    const min = this.distance;
-    const max = Math.min(min * 8, 1000000000)
+    const min = this.distance / 2 ** this.depthPlane;
+    let max;
+    if (this.depthPlane === 0) max = Math.min(min * 8, 1000000000);
+    else max = Math.min(this.distance / 2 ** (this.depthPlane - 1), 1000000000)
     const size = Math.floor((((xorshift(this.seed, 1) % 1001) / 1000) * (max - min)) + min)
     return size;
   };
@@ -68,17 +71,21 @@ class SpaceObject {
     }
   };
   get distance () {
-    return (xorshift(this.seed, 5) % 1000000000) + 1;
+    return (xorshift(this.seed, 5) % 1000000000 - this.depthPlane - 1) + this.depthPlane + 1;
   }
 }
 
-const createObject = () => {
+const createObject = (depthPlane) => {
   state.planetSeed = xorshift(state.planetSeed);
-  state.cosmos.push(new SpaceObject());
+  state.cosmos.push(new SpaceObject(depthPlane));
 }
 
 for (let i = 0; i < 10; i++) {
-  createObject();
+  createObject(0);
+}
+
+for (let i = 0; i < 40; i++) {
+  createObject(1);
 }
 
 state.cosmos.forEach(sO => {

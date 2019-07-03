@@ -7,6 +7,9 @@ const searchPage = (foo, state) => {
 
   const image = [];
   const {background, border, sidebar, clear, highlight, selected} = colors.default;
+  let zoom = 1;
+  const zoomOffsetX = 0;
+  const zoomOffsetY = 0;
 
   // Background
   image.push({color: border, x: 65, y: 0, w: 335, h: 225});
@@ -139,6 +142,7 @@ const searchPage = (foo, state) => {
 
   let hoverPlanetId = 0
 
+  // Left cosmos view
   state.cosmos.sort((a, b) => b.distance - a.distance).forEach(sO => {
 
     const apparentRadius = Math.floor(sO.diameter / sO.distance) / 2;
@@ -199,11 +203,74 @@ const searchPage = (foo, state) => {
 
   });
 
+  // Right cosmos view
+  state.cosmos.sort((a, b) => b.distance - a.distance).forEach(sO => {
+
+    const apparentRadius = Math.floor(2 * sO.diameter / sO.distance) / 2;
+    // const apparentRadius = sO.radius;
+
+    const planetAdjustedX = sO.x
+
+    const origin = {x: sO.x * 2 - 64 + 267 + apparentRadius % 1, y: sO.y * 2 - 64 + 5 + apparentRadius % 1};
+
+    const chosen = sO.id == state.chosenObject;
+    let hover = false;
+
+    if (chosen) {
+      for (let x = -1.5 - apparentRadius; x <= apparentRadius + 1; x++) {
+        for (let y = -1.5 - apparentRadius; y <= apparentRadius + 1; y++) {
+          if (x ** 2 + y ** 2 <= (apparentRadius + 1) ** 2 && x ** 2 + y ** 2 >= (apparentRadius) ** 2) {
+            const pixelX = Math.floor(origin.x + x);
+            const pixelY = Math.floor(origin.y + y);
+            if (!(pixelX < 267 || pixelX > 267 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              image.push({color: selected, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+            }
+          }
+        };
+      };
+    }
+
+    // if (apparentRadius >= 0.5 && sO.distance === 4) {
+    if (apparentRadius >= 0.5) {
+      for (let x = -0.5 - apparentRadius; x <= apparentRadius; x++) {
+        for (let y = -0.5 - apparentRadius; y <= apparentRadius; y++) {
+          // console.log(x, y, x ** 2 + y ** 2 <= apparentRadius ** 2)
+          if (x ** 2 + y ** 2 <= apparentRadius ** 2) {
+            const pixelX = Math.floor(origin.x + x);
+            const pixelY = Math.floor(origin.y + y);
+            if (!(pixelX < 267 || pixelX > 267 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              if (!hover && cursor.x === Math.floor(origin.x + x) && cursor.y === Math.floor(origin.y + y)) hover = true;
+              image.push({color: sO.color, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+            }
+          }
+        };
+      };
+    }
+
+    if (hover && cursor.b === 'click') state.chosenObject = sO.id;
+
+    if (hover) {
+      hoverPlanetId = sO.id;
+      for (let x = -1.5 - apparentRadius; x <= apparentRadius + 1; x++) {
+        for (let y = -1.5 - apparentRadius; y <= apparentRadius + 1; y++) {
+          if (x ** 2 + y ** 2 <= (apparentRadius + 1) ** 2 && x ** 2 + y ** 2 >= (apparentRadius) ** 2) {
+            const pixelX = Math.floor(origin.x + x);
+            const pixelY = Math.floor(origin.y + y);
+            if (!(pixelX < 267 || pixelX > 267 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              image.push({color: highlight, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+            }
+          }
+        };
+      };
+    }
+
+  });
+
   // Left Window Target
-  image.push({color: highlight, x: 69, y: 5, w: 128, h: 1});
-  image.push({color: highlight, x: 69, y: 5, w: 1, h: 128});
-  image.push({color: highlight, x: 69, y: 132, w: 128, h: 1});
-  image.push({color: highlight, x: 196, y: 5, w: 1, h: 128});
+  image.push({color: highlight, x: 69 + 32, y: 5 + 32, w: 64, h: 1});
+  image.push({color: highlight, x: 69 + 32, y: 5 + 32, w: 1, h: 64});
+  image.push({color: highlight, x: 69 + 32, y: 132 - 32, w: 64, h: 1});
+  image.push({color: highlight, x: 196 - 32, y: 5 + 32, w: 1, h: 64});
 
   // Forward/ Backwards page
 
@@ -243,7 +310,8 @@ const searchPage = (foo, state) => {
     const apparentRadius = Math.floor(sO.diameter / sO.distance) / 2;
 
     const origin = {x: 101 + (67 * i) + apparentRadius % 1, y: 170 + apparentRadius % 1};
-    const mapOrigin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
+    const mapOriginLeft = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
+    const mapOriginRight = {x: sO.x * 2 - 64 + 267 + (apparentRadius * 2) % 1, y: sO.y * 2 - 64 + 5 + (apparentRadius * 2) % 1};
     // const origin = {x: 200, y: 100};
 
     const hover = cursor.x >= 68 + 67 * i && cursor.x < 68 + 67 * i + 66 && cursor.y >= 137 && cursor.y < 137 + 76 || hoverPlanetId === sO.id;
@@ -277,10 +345,25 @@ const searchPage = (foo, state) => {
       for (let x = -1.5 - apparentRadius; x <= apparentRadius + 1; x++) {
         for (let y = -1.5 - apparentRadius; y <= apparentRadius + 1; y++) {
           if (x ** 2 + y ** 2 <= (apparentRadius + 1) ** 2 && x ** 2 + y ** 2 >= (apparentRadius) ** 2) {
-            const pixelX = Math.floor(mapOrigin.x + x);
-            const pixelY = Math.floor(mapOrigin.y + y);
+            const pixelX = Math.floor(mapOriginLeft.x + x);
+            const pixelY = Math.floor(mapOriginLeft.y + y);
             if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
-              image.push({color: highlight, x: Math.floor(mapOrigin.x + x) , y: Math.floor(mapOrigin.y + y), w: 1, h: 1})
+              image.push({color: highlight, x: Math.floor(mapOriginLeft.x + x) , y: Math.floor(mapOriginLeft.y + y), w: 1, h: 1})
+            }
+          }
+        };
+      };
+    }
+
+    if (hover) {
+      let apparentRadiusRight = apparentRadius * 2
+      for (let x = -1.5 - apparentRadiusRight; x <= apparentRadiusRight + 1; x++) {
+        for (let y = -1.5 - apparentRadiusRight; y <= apparentRadiusRight + 1; y++) {
+          if (x ** 2 + y ** 2 <= (apparentRadiusRight + 1) ** 2 && x ** 2 + y ** 2 >= (apparentRadiusRight) ** 2) {
+            const pixelX = Math.floor(mapOriginRight.x + x);
+            const pixelY = Math.floor(mapOriginRight.y + y);
+            if (!(pixelX < 267 || pixelX > 267 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              image.push({color: highlight, x: Math.floor(mapOriginRight.x + x) , y: Math.floor(mapOriginRight.y + y), w: 1, h: 1})
             }
           }
         };
