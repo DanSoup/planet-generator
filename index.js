@@ -9,7 +9,7 @@ import writeText from './pages/functions/writeText.js';
 const mainCanvas = document.getElementById('mainCanvas');
 const ctx = mainCanvas.getContext('2d');
 
-const scale = 4;
+const scale = 3;
 let lastFrame = 0;
 let seed = 107;
 const fpsArray = [];
@@ -17,9 +17,9 @@ const fpsArray = [];
 window.state = {
   initialSeed: seed,
   planetSeed: seed + 1,
-  page: 'photo',
+  page: 'search',
   cosmos: [],
-  chosenObject: 5,
+  chosenObject: 4,
   cameras: [
     {
       id: 1,
@@ -108,7 +108,7 @@ const draw = imageData => {
 
 };
 
-let cursor = {x: 0, y: 0, b: 'up'};
+window.cursor = {x: 0, y: 0, b: 'up'};
 
 const getMousePos = evt => {
   var rect = mainCanvas.getBoundingClientRect();

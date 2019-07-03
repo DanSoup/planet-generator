@@ -3,10 +3,10 @@ import writeText from './functions/writeText.js';
 
 let page = 3;
 
-const searchPage = (cursor, state) => {
+const searchPage = (foo, state) => {
 
   const image = [];
-  const {background, border, sidebar, clear, highlight} = colors.default;
+  const {background, border, sidebar, clear, highlight, selected} = colors.default;
 
   // Background
   image.push({color: border, x: 65, y: 0, w: 335, h: 225});
@@ -144,6 +144,22 @@ const searchPage = (cursor, state) => {
 
     const origin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
 
+    const chosen = sO.id == state.chosenObject;
+
+    if (chosen) {
+      for (let x = -1.5 - apparentRadius; x <= apparentRadius + 1; x++) {
+        for (let y = -1.5 - apparentRadius; y <= apparentRadius + 1; y++) {
+          if (x ** 2 + y ** 2 <= (apparentRadius + 1) ** 2 && x ** 2 + y ** 2 >= (apparentRadius) ** 2) {
+            const pixelX = Math.floor(origin.x + x);
+            const pixelY = Math.floor(origin.y + y);
+            if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              image.push({color: selected, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+            }
+          }
+        };
+      };
+    }
+
     // if (apparentRadius >= 0.5 && sO.distance === 4) {
     if (apparentRadius >= 0.5) {
       for (let x = -0.5 - apparentRadius; x <= apparentRadius; x++) {
@@ -206,12 +222,49 @@ const searchPage = (cursor, state) => {
     const apparentRadius = Math.floor(sO.diameter / sO.distance) / 2;
 
     const origin = {x: 101 + (67 * i) + apparentRadius % 1, y: 170 + apparentRadius % 1};
+    const mapOrigin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
     // const origin = {x: 200, y: 100};
 
-    image.push({color: border, x: 68 + 67 * i, y: 137, w: 66, h: 76});
+    const hover = cursor.x >= 68 + 67 * i && cursor.x < 68 + 67 * i + 66 && cursor.y >= 137 && cursor.y < 137 + 76;
+    const chosen = sO.id == state.chosenObject;
+    if (hover && cursor.b === 'click') state.chosenObject = sO.id;
+
+    let bgColor;
+    
+    if (hover) bgColor = highlight;
+    else if (chosen) bgColor = selected;
+    else bgColor = border;
+
+    image.push({color: bgColor, x: 68 + 67 * i, y: 137, w: 66, h: 76});
     image.push({color: clear, x: 69 + 67 * i, y: 138, w: 64, h: 64});
     image.push({color: clear, x: 69 + 67 * i, y: 203, w: 64, h: 9});
     image.push(...writeText(sO.id.toString(), border, 70 + 67 * i, 205));
+
+    // if (chosen) {
+    //   for (let x = -1.5 - apparentRadius; x <= apparentRadius + 1; x++) {
+    //     for (let y = -1.5 - apparentRadius; y <= apparentRadius + 1; y++) {
+    //       if (x ** 2 + y ** 2 <= (apparentRadius + 1) ** 2) {
+    //         const pixelX = Math.floor(origin.x + x);
+    //         const pixelY = Math.floor(origin.y + y);
+    //         image.push({color: selected, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+    //       }
+    //     };
+    //   };
+    // }
+
+    if (hover) {
+      for (let x = -1.5 - apparentRadius; x <= apparentRadius + 1; x++) {
+        for (let y = -1.5 - apparentRadius; y <= apparentRadius + 1; y++) {
+          if (x ** 2 + y ** 2 <= (apparentRadius + 1) ** 2 && x ** 2 + y ** 2 >= (apparentRadius) ** 2) {
+            const pixelX = Math.floor(mapOrigin.x + x);
+            const pixelY = Math.floor(mapOrigin.y + y);
+            if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              image.push({color: highlight, x: Math.floor(mapOrigin.x + x) , y: Math.floor(mapOrigin.y + y), w: 1, h: 1})
+            }
+          }
+        };
+      };
+    }
 
     for (let x = -0.5 - apparentRadius; x <= apparentRadius; x++) {
       for (let y = -0.5 - apparentRadius; y <= apparentRadius; y++) {
