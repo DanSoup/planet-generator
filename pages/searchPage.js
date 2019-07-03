@@ -137,6 +137,8 @@ const searchPage = (foo, state) => {
 
   // Space Objects
 
+  let hoverPlanetId = 0
+
   state.cosmos.sort((a, b) => b.distance - a.distance).forEach(sO => {
 
     const apparentRadius = Math.floor(sO.diameter / sO.distance) / 2;
@@ -145,6 +147,7 @@ const searchPage = (foo, state) => {
     const origin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
 
     const chosen = sO.id == state.chosenObject;
+    let hover = false;
 
     if (chosen) {
       for (let x = -1.5 - apparentRadius; x <= apparentRadius + 1; x++) {
@@ -169,7 +172,25 @@ const searchPage = (foo, state) => {
             const pixelX = Math.floor(origin.x + x);
             const pixelY = Math.floor(origin.y + y);
             if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              if (!hover && cursor.x === Math.floor(origin.x + x) && cursor.y === Math.floor(origin.y + y)) hover = true;
               image.push({color: sO.color, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
+            }
+          }
+        };
+      };
+    }
+
+    if (hover && cursor.b === 'click') state.chosenObject = sO.id;
+
+    if (hover) {
+      hoverPlanetId = sO.id;
+      for (let x = -1.5 - apparentRadius; x <= apparentRadius + 1; x++) {
+        for (let y = -1.5 - apparentRadius; y <= apparentRadius + 1; y++) {
+          if (x ** 2 + y ** 2 <= (apparentRadius + 1) ** 2 && x ** 2 + y ** 2 >= (apparentRadius) ** 2) {
+            const pixelX = Math.floor(origin.x + x);
+            const pixelY = Math.floor(origin.y + y);
+            if (!(pixelX < 69 || pixelX > 69 + 127 || pixelY < 5 || pixelY > 5 + 127)) {
+              image.push({color: highlight, x: Math.floor(origin.x + x) , y: Math.floor(origin.y + y), w: 1, h: 1})
             }
           }
         };
@@ -225,7 +246,7 @@ const searchPage = (foo, state) => {
     const mapOrigin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
     // const origin = {x: 200, y: 100};
 
-    const hover = cursor.x >= 68 + 67 * i && cursor.x < 68 + 67 * i + 66 && cursor.y >= 137 && cursor.y < 137 + 76;
+    const hover = cursor.x >= 68 + 67 * i && cursor.x < 68 + 67 * i + 66 && cursor.y >= 137 && cursor.y < 137 + 76 || hoverPlanetId === sO.id;
     const chosen = sO.id == state.chosenObject;
     if (hover && cursor.b === 'click') state.chosenObject = sO.id;
 
