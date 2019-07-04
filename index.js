@@ -17,6 +17,8 @@ const fpsArray = [];
 window.state = {
   initialSeed: seed,
   planetSeed: seed + 1,
+  searchView: [[-32, 32], [-32, 32], [0, 32]],
+  // searchView: [[0, 32]],
   page: 'search',
   cosmos: [],
   chosenObject: 4,
@@ -84,8 +86,12 @@ for (let i = 0; i < 10; i++) {
   createObject(0);
 }
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 10 * 4 ** 1; i++) {
   createObject(1);
+}
+
+for (let i = 0; i < 10 * 4 ** 2; i++) {
+  createObject(2);
 }
 
 state.cosmos.forEach(sO => {
@@ -161,7 +167,7 @@ const advanceFrame = timestamp => {
   draw(imageData);
   
   if (cursor.b === 'click') cursor.b = 'up';
-  setTimeout(() => window.requestAnimationFrame(advanceFrame), 0);
+  setTimeout(() => window.requestAnimationFrame(advanceFrame), 1000);
   // setTimeout(() => advanceFrame(), 1000 / 100);
 };
 

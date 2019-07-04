@@ -7,9 +7,22 @@ const searchPage = (foo, state) => {
 
   const image = [];
   const {background, border, sidebar, clear, highlight, selected} = colors.default;
-  let zoom = 1;
-  const zoomOffsetX = 0;
-  const zoomOffsetY = 0;
+  let zoom = state.searchView.length;
+  const rightWindowOffsetX = state.searchView.reduce((acc, offset, index) => acc + offset[0] * 2 ** index, 0);
+  const rightWindowOffsetY = state.searchView.reduce((acc, offset, index) => acc + offset[1] * 2 ** index, 0);
+  const leftWindowOffsetX = state.searchView.slice(1).reduce((acc, offset, index) => acc + offset[0] * 2 ** index, 0);
+  const leftWindowOffsetY = state.searchView.slice(1).reduce((acc, offset, index) => acc + offset[1] * 2 ** index, 0);
+  const targetWindowOffsetX = state.searchView[0][0]
+  const targetWindowOffsetY = state.searchView[0][1]
+
+  console.log({
+    rightWindowOffsetX,
+    rightWindowOffsetY,
+    leftWindowOffsetX,
+    leftWindowOffsetY,
+    targetWindowOffsetX,
+    targetWindowOffsetY
+  })
 
   // Background
   image.push({color: border, x: 65, y: 0, w: 335, h: 225});
@@ -145,10 +158,10 @@ const searchPage = (foo, state) => {
   // Left cosmos view
   state.cosmos.sort((a, b) => b.distance - a.distance).forEach(sO => {
 
-    const apparentRadius = Math.floor(sO.diameter / sO.distance) / 2;
+    const apparentRadius = Math.floor(2 ** (zoom - 1) * sO.diameter / sO.distance) / 2;
     // const apparentRadius = sO.radius;
 
-    const origin = {x: sO.x + 69 + apparentRadius % 1, y: sO.y + 5 + apparentRadius % 1};
+    const origin = {x: sO.x * zoom + 64 - 2 ** (5 + zoom) + 69 + apparentRadius % 1 - leftWindowOffsetX * 2, y: sO.y * zoom + 5 + 64 - 2 ** (5 + zoom) + apparentRadius % 1 - leftWindowOffsetY * 2};
 
     const chosen = sO.id == state.chosenObject;
     let hover = false;
@@ -206,12 +219,12 @@ const searchPage = (foo, state) => {
   // Right cosmos view
   state.cosmos.sort((a, b) => b.distance - a.distance).forEach(sO => {
 
-    const apparentRadius = Math.floor(2 * sO.diameter / sO.distance) / 2;
+    const apparentRadius = Math.floor((2 ** zoom) * sO.diameter / sO.distance) / 2;
     // const apparentRadius = sO.radius;
 
     const planetAdjustedX = sO.x
 
-    const origin = {x: sO.x * 2 - 64 + 267 + apparentRadius % 1, y: sO.y * 2 - 64 + 5 + apparentRadius % 1};
+    const origin = {x: sO.x * 2 ** zoom + 64 - 2 ** (6 + zoom) + 267 + apparentRadius % 1 - rightWindowOffsetX * 2, y: sO.y * 2 ** zoom + 64 - 2 ** (6 + zoom) + 5 + apparentRadius % 1 - rightWindowOffsetY * 2};
 
     const chosen = sO.id == state.chosenObject;
     let hover = false;
@@ -267,10 +280,11 @@ const searchPage = (foo, state) => {
   });
 
   // Left Window Target
-  image.push({color: highlight, x: 69 + 32, y: 5 + 32, w: 64, h: 1});
-  image.push({color: highlight, x: 69 + 32, y: 5 + 32, w: 1, h: 64});
-  image.push({color: highlight, x: 69 + 32, y: 132 - 32, w: 64, h: 1});
-  image.push({color: highlight, x: 196 - 32, y: 5 + 32, w: 1, h: 64});
+
+  image.push({color: highlight, x: 69 + 32 + targetWindowOffsetX, y: 5 + 32 + targetWindowOffsetY, w: 64, h: 1});
+  image.push({color: highlight, x: 69 + 32 + targetWindowOffsetX, y: 5 + 32 + targetWindowOffsetY, w: 1, h: 64});
+  image.push({color: highlight, x: 69 + 32 + targetWindowOffsetX, y: 132 - 32 + targetWindowOffsetY, w: 64, h: 1});
+  image.push({color: highlight, x: 196 - 32 + targetWindowOffsetX, y: 5 + 32 + targetWindowOffsetY, w: 1, h: 64});
 
   // Forward/ Backwards page
 
