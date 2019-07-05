@@ -167,7 +167,7 @@ const advanceFrame = timestamp => {
   draw(imageData);
   
   if (cursor.b === 'click') cursor.b = 'up';
-  setTimeout(() => window.requestAnimationFrame(advanceFrame), 1000);
+  setTimeout(() => window.requestAnimationFrame(advanceFrame), 0);
   // setTimeout(() => advanceFrame(), 1000 / 100);
 };
 
