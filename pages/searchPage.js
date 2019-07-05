@@ -171,26 +171,7 @@ const searchPage = () => {
     {x: 214, y: 49, w: 1, h: 1},
     {x: 217, y: 49, w: 1, h: 1},
     {x: 215, y: 48, w: 2, h: 1},
-  ])
-
-  // Button Symbols
-
-  // image.push({color: border, x: 246, y: 13, w: 14, h: 2});
-  // image.push({color: border, x: 252, y: 7, w: 2, h: 14});
-
-  
-
-  
-
-
-
-
-
-
-
-  
-  
-  
+  ])  
 
   // Space Objects
 
