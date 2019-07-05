@@ -161,7 +161,7 @@ const searchPage = (foo, state) => {
     const apparentRadius = Math.floor(2 ** (zoom - 1) * sO.diameter / sO.distance) / 2;
     // const apparentRadius = sO.radius;
 
-    const origin = {x: sO.x * zoom + 64 - 2 ** (5 + zoom) + 69 + apparentRadius % 1 - leftWindowOffsetX * 2, y: sO.y * zoom + 5 + 64 - 2 ** (5 + zoom) + apparentRadius % 1 - leftWindowOffsetY * 2};
+    const origin = {x: sO.x * 2 ** (zoom - 1) + 64 - 2 ** (5 + zoom) + 69 + apparentRadius % 1 - leftWindowOffsetX * 2, y: sO.y * 2 ** (zoom - 1) + 5 + 64 - 2 ** (5 + zoom) + apparentRadius % 1 - leftWindowOffsetY * 2};
 
     const chosen = sO.id == state.chosenObject;
     let hover = false;
