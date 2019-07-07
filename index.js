@@ -17,7 +17,7 @@ const fpsArray = [];
 window.state = {
   initialSeed: seed,
   planetSeed: seed + 1,
-  searchView: [[-32, 32], [-32, 32], [0, 32]],
+  searchView: [[0, 0]],
   page: 'search',
   cosmos: [],
   selectedObject: 4,
@@ -74,6 +74,13 @@ class SpaceObject {
   };
   get distance () {
     return (xorshift(this.seed, 5) % 1000000000 - this.depthPlane - 1) + this.depthPlane + 1;
+  };
+  get rotation () {
+    return {
+      x: Math.floor(xorshift(this.seed, 5) / 16 ** 0) % 16,
+      y: Math.floor(xorshift(this.seed, 5) / 16 ** 1) % 16,
+      z: Math.floor(xorshift(this.seed, 5) / 16 ** 2) % 16
+    }
   }
 }
 
@@ -167,7 +174,7 @@ const advanceFrame = timestamp => {
   draw(imageData);
   
   if (cursor.b === 'click') cursor.b = 'up';
-  setTimeout(() => window.requestAnimationFrame(advanceFrame), 100);
+  setTimeout(() => window.requestAnimationFrame(advanceFrame), 0);
   // setTimeout(() => advanceFrame(), 1000 / 100);
 };
 

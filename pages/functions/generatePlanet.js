@@ -34,18 +34,36 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
         const midX = rX;
         const midY = rY;
         const midZ = Math.sqrt(aRadius ** 2 - ((midX) ** 2 + (midY) ** 2));
-        const theta = Math.PI * 0.25;
-        const newX = (midX / 2 ** zoom) + 64 - (zoomX * 2 ** zoom);
-        // const newY = Math.cos(theta) * midY - Math.sin(theta) * midZ + origin;
-        // const newZ = Math.sin(theta) * midY + Math.cos(theta) * midZ + origin;
-        const newY = ((Math.cos(theta) * midY - Math.sin(theta) * midZ) / 2 ** zoom) + 64 - (zoomY * 2 ** zoom);
-        const newZ = ((Math.sin(theta) * midY + Math.cos(theta) * midZ) / 2 ** zoom) + 64;
+
+        const xRotation = Math.PI * planet.rotation.x / 8 + 10 * Date.now() / 100000;
+        const yRotation = Math.PI * planet.rotation.y / 8 + 11 * Date.now() / 100000;
+        const zRotation = Math.PI * planet.rotation.z / 8 + 12 * Date.now() / 10000;
+
+        // const newX = (midX / 2 ** zoom) + 64 - (zoomX * 2 ** zoom);
+        // const newY = ((Math.cos(xRotation) * midY - Math.sin(xRotation) * midZ) / 2 ** zoom) + 64 - (zoomY * 2 ** zoom);
+        // const newZ = ((Math.sin(xRotation) * midY + Math.cos(xRotation) * midZ) / 2 ** zoom) + 64;
+
+        let newX = (midX / 2 ** zoom);
+        let newY = ((Math.cos(xRotation) * midY - Math.sin(xRotation) * midZ) / 2 ** zoom);
+        let newZ = ((Math.sin(xRotation) * midY + Math.cos(xRotation) * midZ) / 2 ** zoom);
+
+        newX = ((Math.cos(yRotation) * newX + Math.sin(yRotation) * newZ) / 2 ** zoom);
+        newY = (newY / 2 ** zoom);
+        newZ = ((-Math.sin(yRotation) * newX + Math.cos(yRotation) * newZ) / 2 ** zoom);
+
+        newX = ((Math.cos(zRotation) * newX - Math.sin(zRotation) * newY) / 2 ** zoom);
+        newY = ((Math.sin(zRotation) * newX + Math.cos(zRotation) * newY) / 2 ** zoom);
+        newZ = (newZ / 2 ** zoom);
+
+        newX += 64 - (zoomX * 2 ** zoom);
+        newY += 64 - (zoomY * 2 ** zoom);
+        newZ += 64;
 
         // Surface image is generated here.
         const newColor = {...planet.color}
-        newColor.r = newColor.r * ((0.95 * newZ / 128) + 0) + parseInt(Math.sin(x + y * 128).toString(10).slice(-3)) / 40000;
-        newColor.g = newColor.g * ((0.75 * newZ / 128) + 0.2 * newX / 128) + parseInt(Math.sin(x + y * 128).toString(10).slice(-3)) / 40000;
-        newColor.b = newColor.b * ((0.55 * newZ / 128) + 0.4 * newY / 128) + parseInt(Math.sin(x + y * 128).toString(10).slice(-3)) / 40000;
+        newColor.r = newColor.r * ((0.95 * newZ / 128) + 0) + parseInt(Math.sin(newX + newY * 128).toString(10).slice(-3)) / 40000;
+        newColor.g = newColor.g * ((0.75 * newZ / 128) + 0.2 * newX / 128) + parseInt(Math.sin(newX + newY * 128).toString(10).slice(-3)) / 40000;
+        newColor.b = newColor.b * ((0.55 * newZ / 128) + 0.4 * newY / 128) + parseInt(Math.sin(newX + newY * 128).toString(10).slice(-3)) / 40000;
 
         rawImage[y][x] = newColor
       } else {
@@ -134,15 +152,15 @@ const generatePlanet = (planet, camera, startX = 0, startY = 0, maxSize = 128, z
     // if (imageData.activePixels) console.log(imageData.color)
   });
 
-  image.forEach(imageData => {
-    const {r, g, b} = imageData.color;
-    imageData.color = {
-      r: Math.floor(4 * Math.max(r)) / (4),
-      g: Math.floor(4 * Math.max(g)) / (4),
-      b: Math.floor(4 * Math.max(b)) / (4),
-      a: 1
-    }
-  });
+  // image.forEach(imageData => {
+  //   const {r, g, b} = imageData.color;
+  //   imageData.color = {
+  //     r: Math.floor(4 * Math.max(r)) / (4),
+  //     g: Math.floor(4 * Math.max(g)) / (4),
+  //     b: Math.floor(4 * Math.max(b)) / (4),
+  //     a: 1
+  //   }
+  // });
 
 
   return image;
