@@ -4,7 +4,7 @@ import writeText from './functions/writeText.js';
 
 const photoPage = () => {
 
-  const planet = state.cosmos.find(object => object.id === state.chosenObject);
+  const planet = state.cosmos.find(object => object.id === state.selectedObject);
   const camera = state.cameras[0];
 
   const image = [];
