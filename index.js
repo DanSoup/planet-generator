@@ -18,10 +18,10 @@ window.state = {
   initialSeed: seed,
   planetSeed: seed + 1,
   searchView: [[-32, 32], [-32, 32], [0, 32]],
-  // searchView: [[0, 32]],
   page: 'search',
   cosmos: [],
-  chosenObject: 4,
+  selectedObject: 4,
+  hoveredObject: 1,
   cameras: [
     {
       id: 1,
@@ -167,7 +167,7 @@ const advanceFrame = timestamp => {
   draw(imageData);
   
   if (cursor.b === 'click') cursor.b = 'up';
-  setTimeout(() => window.requestAnimationFrame(advanceFrame), 0);
+  setTimeout(() => window.requestAnimationFrame(advanceFrame), 100);
   // setTimeout(() => advanceFrame(), 1000 / 100);
 };
 
