@@ -1,3 +1,11 @@
+// const hexColor = await import('./pages/functions/hexColor.js');
+// const searchPage = await import('./pages/searchPage.js');
+// const sidebarPage = await import('./pages/sidebarPage.js');
+// const photoPage = await import('./pages/photoPage.js');
+// const atlasPage = await import('./pages/atlasPage.js');
+// const xorshift = await import('./pages/functions/xorshift.js');
+// const writeText = await import('./pages/functions/writeText.js');
+
 import hexColor from './pages/functions/hexColor.js';
 import searchPage from './pages/searchPage.js';
 import sidebarPage from './pages/sidebarPage.js';
@@ -6,28 +14,35 @@ import atlasPage from './pages/atlasPage.js';
 import xorshift from './pages/functions/xorshift.js';
 import writeText from './pages/functions/writeText.js';
 
+console.log('here')
+
 const mainCanvas = document.getElementById('mainCanvas');
 const ctx = mainCanvas.getContext('2d');
 
 const scale = 3;
 let lastFrame = 0;
-let seed = 900;
+let seed = 909;
 const fpsArray = [];
 
 window.state = {
   initialSeed: seed,
   planetSeed: seed + 1,
   searchView: [[0, 0]],
-  page: 'search',
+  page: 'photo',
   cosmos: [],
   selectedObject: 4,
   hoveredObject: 1,
+  photoView: {
+    zoom: 1,
+    xZoomPos: 0,
+    yZoomPos: 0
+  },
   cameras: [
     {
       id: 1,
-      resolution: 16,
+      resolution: 128,
       light: 2,
-      zoom: 100,
+      zoom: 16,
       color: 0
     }
   ],
@@ -179,6 +194,8 @@ const advanceFrame = timestamp => {
 };
 
 window.requestAnimationFrame(advanceFrame);
+
+export default 'hi';
 
 // drawPlanet(mainCanvas)
 // generateTerrain(mainCanvas)

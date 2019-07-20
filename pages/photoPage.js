@@ -1,5 +1,5 @@
 import colors from './functions/resources/colors.js';
-import generatePlanet from './functions/generatePlanet.js';
+import photoView from './functions/photoView.js';
 import writeText from './functions/writeText.js';
 
 const photoPage = () => {
@@ -175,8 +175,8 @@ const photoPage = () => {
     {x: 215, y: 48, w: 2, h: 1},
   ])  
 
-  image.push(...generatePlanet(planet, camera, 69, 5, 128))
-  image.push(...generatePlanet(planet, camera, 267, 5, 128, zoom, xZoomPos, yZoomPos))
+  image.push(...photoView(planet, camera, 69, 5, 128))
+  image.push(...photoView(planet, camera, 267, 5, 128, zoom, xZoomPos, yZoomPos))
   
   // Left Window Target
   image.push({color: highlight, x: 69 + 64 - (2 ** (6 - zoom)) + xZoomPos, y: 5 + 64 - (2 ** (6 - zoom)) + yZoomPos, w: 128 / (2 ** zoom), h: 1});
