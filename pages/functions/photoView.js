@@ -19,7 +19,7 @@ const photoView = (planet, camera, startX = 0, startY = 0, maxSize = 128, zoom =
   
   const image = [];
 
-  const planetData = generatePlanet({displayResolution, pixelSize, maxSize, aRadius, camera, planet, zoom});
+  const planetData = generatePlanet({displayResolution, pixelSize, maxSize, aRadius, camera, planet, zoom, zoomX, zoomY});
 
   planetData.forEach(data => {
     const newData = {...data};
@@ -31,6 +31,8 @@ const photoView = (planet, camera, startX = 0, startY = 0, maxSize = 128, zoom =
   image.push(...writeText(maximumResolution.toString(10), border, 100 + (zoom ? 50 : 0), 150))
   image.push(...writeText(pixelSize.toString(10), border, 100 + (zoom ? 50 : 0), 160))
   image.push(...writeText(displayResolution.toString(10), border, 100 + (zoom ? 50 : 0), 170))
+  image.push(...writeText(zoomX.toString(10), border, 100 + (zoom ? 50 : 0), 180))
+  image.push(...writeText(zoomY.toString(10), border, 100 + (zoom ? 50 : 0), 190))
 
   const rawImage = [];
   const origin = Math.floor(maxSize / 2);
