@@ -12,7 +12,21 @@ const generatePlanet = ({displayResolution, pixelSize, maxSize, camera, planet, 
       const rx = ((zoomX * (2 ** zoom) + x + 0.5) - displayResolution / 2) / aRadius;
       const rz = (1 - ry ** 2 - rx ** 2) ** 0.5; 
 
-      if (ry ** 2 + rx ** 2 < 1) image.push({color: {r: 1, g: 1, b: 1 - rz, a: 1}, x: x * pixelSize, y: y * pixelSize, w: pixelSize, h: pixelSize})
+      if (ry ** 2 + rx ** 2 < 1) {
+        // image.push({color: planet.color, x: x * pixelSize, y: y * pixelSize, w: pixelSize, h: pixelSize})
+        image.push({
+          color: {
+            r: planet.color.r * (rz + 1) / 2,
+            g: planet.color.g * (rz + 1) / 2,
+            b: planet.color.b * (rz + 1) / 2,
+            a: 1
+          },
+          x: x * pixelSize,
+          y: y * pixelSize,
+          w: pixelSize,
+          h: pixelSize
+        })
+      }
     } 
   }
 

@@ -40,9 +40,9 @@ window.state = {
   cameras: [
     {
       id: 1,
-      resolution: 128,
+      resolution: 16,
       light: 2,
-      zoom: 16,
+      zoom: 8,
       color: 0
     }
   ],
