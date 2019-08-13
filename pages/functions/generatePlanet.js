@@ -8,8 +8,8 @@ const generatePlanet = ({displayResolution, pixelSize, maxSize, camera, planet, 
   for (let y = 0; y < displayResolution; y++) {
     for (let x = 0; x < displayResolution; x++) {
 
-      const ry = ((zoomY * (2 ** zoom) + y + 0.5) - displayResolution / 2) / aRadius; 
-      const rx = ((zoomX * (2 ** zoom) + x + 0.5) - displayResolution / 2) / aRadius;
+      const ry = ((zoomY + y + 0.5) - displayResolution / 2) / aRadius; 
+      const rx = ((zoomX + x + 0.5) - displayResolution / 2) / aRadius;
       const rz = (1 - ry ** 2 - rx ** 2) ** 0.5; 
 
       if (ry ** 2 + rx ** 2 < 1) {
